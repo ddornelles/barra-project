@@ -8,9 +8,7 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
-const passport = require('passport');
 
-console.log('to')
 mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then((x) => {
