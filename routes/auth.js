@@ -1,6 +1,7 @@
 const express = require('express');
 const routerAuth = express.Router();
-const ensureLogin = require('connect-ensure-login');
+const ensureLoggedIn = require('connect-ensure-login');
+const ensureLoggedOut = require('connect-ensure-login');
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const bcryptSalt = 10;
@@ -133,14 +134,14 @@ routerAuth.get('/confirmation/:code', (req, res) => {
 // login access point
 
 routerAuth.get('/login', (req, res, next) => {
-  res.render('./auth/login', { 'message': req.flash('error') });
+  res.render('./auth/login');
 });
 
 routerAuth.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/login',
   failureFlash: true,
-  passReqToCallback: true
+  passReqToCallback: true,
 }));
 
 // logout handler

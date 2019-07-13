@@ -22,7 +22,7 @@ mongoose
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
   .catch((err) => {
-    console.error('Error connecting to mongo', err);
+    console.log('Error connecting to mongo', err);
   });
 
 const app_name = require('./package.json').name;
