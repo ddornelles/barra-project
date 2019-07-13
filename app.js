@@ -9,9 +9,8 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 const passport = require('passport');
-console.log('teste')
 
-
+console.log('to')
 mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then((x) => {
@@ -30,7 +29,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser())
+app.use(cookieParser());
 
 // Express View engine setup
 app.set('views', path.join(__dirname, 'views'));
