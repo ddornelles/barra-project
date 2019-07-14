@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-8 offset-2 mt-3">
+    <form action="" method="GET">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" aria-describedby="usernamealert"
+          placeholder="Choose your username">
+        <small id="usernamealert" class="form-text text-muted">Some warning or alert.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="form-group text-center">
+        <button id="signup" type="submit" class="btn btn-info">Signup</button>
+        <small class="form-text">
+          <p class="account-message">Have an account? <a href="/login">Login</a></p>
+        </small>
+        <button type="submit" class="btn btn-sm bg-secondary"><i class="fab fa-google"></i></button>
+        <button type="submit" class="btn btn-sm bg-secondary"><i class="fab fa-facebook-f"></i></button>
+        <button type="submit" class="btn btn-sm bg-secondary"><i class="fab fa-twitter"></i></button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+  $(document).ready(function() {
+    document.getElementById('signup').onclick = function () {
+      swal({
+        title: 'Success!',
+        text: 'Sign completed.',
+        type: 'success',
+        confirmButtonColor: '#DD6B55',
+        }).then(() => {
+          if (result.value) {
+            // handle Confirm button click
+          } else {
+            // result.dismiss can be 'cancel', 'overlay', 'esc' or 'timer'
+          }
+});
+  });
+  })
+</script>

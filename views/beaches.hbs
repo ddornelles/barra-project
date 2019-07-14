@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="col-12 col-sm-12">
+    {{!-- <button class="btn btn-secondary" type="submit" id="search-beaches">
+      <i class="fas fa-search-location"></i>
+    </button> --}}
+    <div class="mapouter">
+      <div class="gmap_canvas"><iframe id="gmap_canvas"
+          src="https://maps.google.com/maps?q=Barraca%20da%20Claudia%2C%20Ipanema&t=&z=17&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+          href="https://www.maps-erstellen.de"></a></div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-12">
+  <hr>
+    <h5>Praia de Ipanema</h5>
+  </div>
+  <div class="col-12 col-sm-12">
+    <ul class="list-group" id="list-barracas">
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>
+        <p><a href="" data-toggle="modal" data-target="#exampleModal">Barraca do Fulano</a></p>
+      </li>
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>Barraca da Beltrana
+      </li>
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>Barraca do Ciclano
+      </li>
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>Barraca da Fulana
+      </li>
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>Barraca do Beltrano
+      </li>
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>Barraca do Ciclana
+      </li>
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>Barraca do Fulano
+      </li>
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>Barraca da Beltrana
+      </li>
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>Barraca do Ciclano
+      </li>
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>Barraca da Fulana
+      </li>
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>Barraca do Beltrano
+      </li>
+      <li class="list-group-item d-flex">
+        <figure class="figure mockup-figure size50"></figure>Barraca do Ciclana
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="/signup" method="GET">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Barraca do Fulano</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p><b>Descriçao:</b><br>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione laboriosam libero quos minus voluptatibus
+            officia magni odio natus, esse fugiat quisquam reprehenderit, ex adipisci hic voluptas tempore id distinctio quo.</p>
+            <p><b>Serviços:</b><br>
+            <i class="fas fa-umbrella-beach"></i> <i class="fas fa-utensils"></i> <i class="fas fa-wine-bottle"></i><br>
+            Ratione laboriosam libero quos minus voluptatibus
+            officia magni odio natus.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info">Reservar</button>
+          {{!-- <div class="alert alert-warning d-block" role="alert">
+            <small>A simple warning alert—check it out!</small>
+          </div> --}}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
