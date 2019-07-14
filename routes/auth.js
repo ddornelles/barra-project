@@ -1,13 +1,12 @@
 const express = require('express');
 const routerAuth = express.Router();
-const ensureLoggedIn = require('connect-ensure-login');
-const ensureLoggedOut = require('connect-ensure-login');
+const ensureLogin = require("connect-ensure-login");
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const bcryptSalt = 10;
 const nodemailer = require('nodemailer');
 const passport = require('passport');
-const flash = require('connect-flash');
+
 
 // check role for the user
 
@@ -21,14 +20,9 @@ function checkRoles(role) {
   }
 }
 
-const checkGuest = checkRoles('CLIENT');
+const checkClient = checkRoles('CLIENT');
 const checkEditor = checkRoles('VENDOR');
 
-
-/* GET home page */
-routerAuth.get('/', (req, res, next) => {
-  res.render('index');
-});
 
 // signup for users
 
@@ -54,14 +48,14 @@ routerAuth.post('/user-signup', (req, res, next) => {
   }
 
   if (email === '') {
-    res.render('auth/signup', { message: 'Indicate username and password' });
+    res.render('auth/signup', { message: 'Indicate your email' });
     return;
   }
 
   User.findOne({ username })
     .then((user) => {
       if (user !== null) {
-        res.render('auth/signup', { message: 'The username already exists' });
+        res.render('auth/signup', { message: 'Something went wrong' });
         return;
       }
 
@@ -76,7 +70,7 @@ routerAuth.post('/user-signup', (req, res, next) => {
       });
 
       const transport = nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
+        host: 'smtp.mailtrap.io',
         port: 2525,
         auth: {
           user: process.env.NODEMAILER_USER,
@@ -130,11 +124,10 @@ routerAuth.get('/confirmation/:code', (req, res) => {
     .catch(err => console.log(err));
 });
 
-
 // login access point
 
-routerAuth.get('/login', (req, res, next) => {
-  res.render('./auth/login');
+routerAuth.get('/login', (req, res) => {
+  res.render('./auth/login', { message: req.flash('error') });
 });
 
 routerAuth.post('/login', passport.authenticate('local', {
