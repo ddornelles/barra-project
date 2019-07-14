@@ -10,10 +10,8 @@ const userSchema = new Schema({
   },
   confirmationCode: { type: String, unique: true },
   password: String,
-  profilePicture: {
-    name: { type: String, default: 'profilePic' },
-    path: { type: String, default: 'https://image.flaticon.com/icons/svg/119/119596.svg' },
-  },
+  imgName: { type: String, default: 'profilePic' },
+  imgPath: { type: String, default: 'https://image.flaticon.com/icons/svg/119/119596.svg' },
   role: {
     type: String,
     enum: ['CLIENT', 'PREMIUM'],

@@ -1,28 +1,11 @@
 const express = require('express');
 const routerAuth = express.Router();
-const ensureLogin = require("connect-ensure-login");
-const User = require('../models/user');
+const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 const bcrypt = require('bcrypt');
 const bcryptSalt = 10;
 const nodemailer = require('nodemailer');
 const passport = require('passport');
-
-
-// check role for the user
-
-function checkRoles(role) {
-  return (req, res, next) => {
-    if (req.isAuthenticated() && req.user.role === role) {
-      return next();
-    } else {
-      res.redirect('/login')
-    }
-  }
-}
-
-const checkClient = checkRoles('CLIENT');
-const checkEditor = checkRoles('VENDOR');
-
+const User = require('../models/user');
 
 // signup for users
 

@@ -1,27 +1,43 @@
 const express = require('express');
-const router = express.Router();
-const ensureLogin = require("connect-ensure-login");
-const User = require('../models/user');
-const passport = require('passport');
 
-router.get('/edit-user/:id', (req, res, next) => {
-  User.findById(req.params.id)
-    .then((answer) => { res.render('/edit', answer)})
+const router = express.Router();
+const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
+const bcrypt = require('bcrypt');
+
+const bcryptSalt = 10;
+const passport = require('passport');
+const User = require('../models/user');
+const uploadCloud = require('../config/cloudinary.js');
+
+
+router.get('/profile/', ensureLoggedIn(), (req, res, next) => {
+  User.findById(req.user.id)
+    .then((answer) => {
+      console.log(answer);
+      res.render('./user/profile', answer);
+    })
     .catch(err => console.log(`Fire!${err}`));
 });
 
-router.post('/edit-user/:id', (req, res, next) => {
-  const { email, password } = req.body;
-  const { id } = req.params;
+router.get('/edit-user', ensureLoggedIn(), (req, res, next) => {
+  User.findById(req.user.id)
+    .then((answer) => { res.render('./user/edit-user', answer); })
+    .catch(err => console.log(`Fire!${err}`));
+});
 
-  const profilePicture = {
-    path: `/uploads/${req.file.filename}`,
-  };
+router.post('/edit-user', ensureLoggedIn(), uploadCloud.single('imgPath'), (req, res, next) => {
+  const { email } = req.body;
+  const { id } = req.user;
 
-  User.update({ _id: id }, { $set: { email, password, profilePicture } })
+  if (email === '') {
+    res.render('/edit-user', { message: 'Indicate a new email' });
+    return;
+  }
+
+  User.update({ _id: id }, { $set: { email, imgName: req.user.id, imgPath: req.file.filename } })
     .then((answer) => {
       console.log(answer);
-      res.redirect(`/edit-user/${id}`);
+      res.redirect('/profile');
     })
     .catch(err => console.log(`Fire!${err}`));
 });
