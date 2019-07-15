@@ -11,13 +11,14 @@ const User = require('../models/user');
 const Vendor = require('../models/vendor');
 
 // signup for users
-
-routerAuth.get('/user-signup', ensureLoggedOut(), (req, res, next) => {
+routerAuth.get('/signup', ensureLoggedOut(), (req, res, next) => {
   res.render('./auth/signup');
 });
 
-routerAuth.post('/user-signup', (req, res, next) => {
-  const { username, email, password, promotionalEmail, role } = req.body;
+
+routerAuth.post('/signup', (req, res, next) => {
+  console.log(req.body);
+  const { name, username, password, promotionalEmail, role } = req.body;
 
   // will create the auth token generating a random combinantion
   const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -28,12 +29,12 @@ routerAuth.post('/user-signup', (req, res, next) => {
 
   // check for empty strings
 
-  if (username === '' || password === '') {
-    res.render('auth/signup', { message: 'Indicate username and password' });
+  if (name === '' || password === '') {
+    res.render('auth/signup', { message: 'Indicate name and password' });
     return;
   }
 
-  if (email === '') {
+  if (username === '') {
     res.render('auth/signup', { message: 'Indicate your email' });
     return;
   }
@@ -41,7 +42,7 @@ routerAuth.post('/user-signup', (req, res, next) => {
   User.findOne({ username })
     .then((user) => {
       if (user !== null) {
-        res.render('auth/signup', { message: 'Username or password invalid' });
+        res.render('auth/signup', { message: 'Email or password invalid' });
         return;
       }
 
@@ -49,10 +50,10 @@ routerAuth.post('/user-signup', (req, res, next) => {
       const hashPass = bcrypt.hashSync(password, salt);
 
       const newUser = new User({
-        username,
+        name,
         password: hashPass,
         confirmationCode: token,
-        email,
+        username,
         promotionalEmail,
         role,
       });
@@ -70,12 +71,12 @@ routerAuth.post('/user-signup', (req, res, next) => {
         .then(() => {
           transport.sendMail({
             from: '"My Awesome Project 👻" <myawesome@project.com>',
-            to: email,
+            to: username,
             subject: 'Confirme sua conta',
             text: 'something something',
             html: `Click <a href="http://localhost:3000/confirmation/${newUser.confirmationCode}"> Aqui </a> para confirmar sua conta!`,
           })
-            .then(() => res.redirect('/'))
+            .then(() => res.redirect('/login'))
             .catch(error => console.log(error));
         })
         .catch((err) => {
