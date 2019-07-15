@@ -13,9 +13,10 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   imgName: { type: String, default: 'profilePic' },
   imgPath: { type: String, default: 'https://image.flaticon.com/icons/svg/119/119596.svg' },
+  cpf: { type: String, default: '123'},
   role: {
     type: String,
-    enum: ['CLIENT', 'PREMIUM'],
+    enum: ['CLIENT', 'PREMIUM', 'VENDOR'],
     default: 'CLIENT',
   },
 }, {

@@ -20,7 +20,7 @@ router.get('/profile', ensureLoggedIn(), (req, res, next) => {
       })
       .catch(err => console.log(`Fire!${err}`));
   } else if (req.user.role === 'VENDOR') {
-    Vendor.findById(req.user.id)
+    User.findById(req.user.id)
       .then((answer) => {
         console.log(answer);
         res.render('./vendor/dashboard', answer);

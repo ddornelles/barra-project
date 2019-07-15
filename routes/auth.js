@@ -17,7 +17,7 @@ routerAuth.get('/user-signup', ensureLoggedOut(), (req, res, next) => {
 });
 
 routerAuth.post('/user-signup', (req, res, next) => {
-  const { username, email, password, promotionalEmail } = req.body;
+  const { username, email, password, promotionalEmail, role } = req.body;
 
   // will create the auth token generating a random combinantion
   const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -54,6 +54,7 @@ routerAuth.post('/user-signup', (req, res, next) => {
         confirmationCode: token,
         email,
         promotionalEmail,
+        role,
       });
 
       const transport = nodemailer.createTransport({
@@ -84,70 +85,6 @@ routerAuth.post('/user-signup', (req, res, next) => {
     });
 });
 
-// signup for vendors
-
-
-routerAuth.get('/vendor-signup', ensureLoggedOut(), (req, res, next) => {
-  res.render('auth/vendor-signup');
-});
-
-routerAuth.post('/vendor-signup', (req, res, next) => {
-  console.log(req.body)
-  const { username, email, code, password } = req.body;
-
-  // will create the auth token generating a random combinantion
-  const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  let token = '';
-  for (let i = 0; i < 25; i += 1) {
-    token += characters[Math.floor(Math.random() * characters.length)];
-  }
-
-  Vendor.findOne({ username })
-    .then((user) => {
-      if (user !== null) {
-        res.render('auth/vendor-signup', { message: 'Username or password invalid' });
-        return;
-      }
-
-      const salt = bcrypt.genSaltSync(bcryptSalt);
-      const hashPass = bcrypt.hashSync(password, salt);
-
-      const newVendor = new Vendor({
-        username,
-        password: hashPass,
-        confirmationCode: token,
-        email,
-        code,
-      });
-
-      const transport = nodemailer.createTransport({
-        host: 'smtp.mailtrap.io',
-        port: 2525,
-        auth: {
-          user: process.env.NODEMAILER_USER,
-          pass: process.env.NODEMAILER_PASS,
-        },
-      });
-
-      newVendor.save()
-        .then(() => {
-          transport.sendMail({
-            from: '"My Awesome Project 👻" <myawesome@project.com>',
-            to: email,
-            subject: 'Confirme sua conta',
-            text: 'something something',
-            html: `Click <a href="http://localhost:3000/confirmation/${newVendor.confirmationCode}"> Aqui </a> para confirmar sua conta!`,
-          })
-            .then(() => res.redirect('/'))
-            .catch(error => console.log(error));
-        })
-        .catch((err) => {
-          console.log(err);
-          res.render('auth/vendor-signup', { message: 'Something went wrong' });
-        });
-    });
-});
-
 
 // confirmation route
 routerAuth.get('/confirmation/:code', (req, res) => {
@@ -170,7 +107,7 @@ routerAuth.get('/login', (req, res) => {
 });
 
 routerAuth.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
+  successRedirect: '/profile',
   failureRedirect: '/login',
   failureFlash: true,
   passReqToCallback: true,
