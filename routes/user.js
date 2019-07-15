@@ -8,9 +8,11 @@ const bcryptSalt = 10;
 const passport = require('passport');
 const User = require('../models/user');
 const Vendor = require('../models/vendor');
+const Barraca = require('../models/barraca');
 const uploadCloud = require('../config/cloudinary.js');
 
 router.get('/profile', ensureLoggedIn(), (req, res, next) => {
+  let flag = true;
   if (req.user.role === 'CLIENT') {
     User.findById(req.user.id)
       .then((answer) => {
@@ -21,10 +23,19 @@ router.get('/profile', ensureLoggedIn(), (req, res, next) => {
   } else if (req.user.role === 'VENDOR') {
     User.findById(req.user.id)
       .then((answer) => {
-        console.log(answer);
-        res.render('./vendor/profile', {answer, GMAPS: process.env.GMAPS});
+        Barraca.find({ owner: req.user.id })
+          .then((result) => {
+            console.log(result);
+            if (result.length >= 1) {
+              flag = false;
+              res.render('./vendor/profile', { answer, flag, result });
+              return;
+            }
+            res.render('./vendor/profile', { answer, flag });
+          })
+          .catch(err => console.log(err));
       })
-      .catch(err => console.log(`Fire!${err}`))
+      .catch(err => console.log(`Fire!${err}`));
   }
 });
 

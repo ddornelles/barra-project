@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/beaches', (req, res, next) => {
-  res.render('beaches');
+  res.render('beaches', { GMAPS: process.env.GMAPS });
 });
 
 router.get('/barraca', (req, res, next) => {
