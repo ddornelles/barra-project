@@ -13,16 +13,16 @@ const uploadCloud = require('../config/cloudinary.js');
 router.get('/profile', ensureLoggedIn(), (req, res, next) => {
   if (req.user.role === 'CLIENT') {
     User.findById(req.user.id)
-      .then(answer => {
-        console.log(answer);
-        res.render('./user/profile', answer);
+      .then((answer) => {
+        console.log(process.env);
+        res.render('./user/profile', { answer });
       })
       .catch(err => console.log(`Fire!${err}`));
   } else if (req.user.role === 'VENDOR') {
     User.findById(req.user.id)
       .then((answer) => {
         console.log(answer);
-        res.render('./vendor/profile', answer);
+        res.render('./vendor/profile', {answer, GMAPS: process.env.GMAPS});
       })
       .catch(err => console.log(`Fire!${err}`))
   }
