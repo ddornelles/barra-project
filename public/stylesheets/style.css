@@ -79,6 +79,12 @@ figure#logo-home {
   margin-bottom: 0;
 }
 
+/* Map do Vendor Cadastro */
+#googlemap {
+  height: 300px;
+  width: 100%;
+}
+
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
