@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.mockup-figure {
+  background-color: gray;
+  margin: 0 16px 0 0;
+}
+
+.size50 {
+  height: 50px;
+  width: 50px;
+}
+.size150 {
+  height: 150px;
+  width: 150px;
+}
+
+body {
+  /* background: url('../images/background_home.jpg') no-repeat top center;
+  background-size: cover; */
+  font-size: 10px;
+}
+
+.figure {
+  margin-bottom: 0;
+}
+
+figure#logo-home {
+  height: 200px;
+  width: 200px;
+}
+
+.mapouter {
+  margin-top: 10px;
+  position: relative;
+  text-align: right;
+  height: 250px;
+  width: 100%;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 100%;
+  width: 100%;
+}
+
+#gmap_canvas {
+  height: 100%;
+  width: 100%;
+}
+
+#search-beaches {
+  position: relative;
+}
+
+#list-barracas {
+  height: 300px;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.servicos {
+  width: 30px;
+}
+
+#barraca-services .form-group {
+  margin-bottom: 0;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+main > .container {
+  padding: 60px 15px 0;
+}
+
+.footer {
+  background-color: #f5f5f5;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}

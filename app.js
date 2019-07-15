@@ -90,9 +90,11 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // Routes middleware goes here
 const index = require('./routes/index');
 app.use('/', index);
+
 const passportRouter = require('./routes/auth');
 app.use('/', passportRouter);
 const userRouter = require('./routes/user');
 app.use('/', userRouter);
+
 
 module.exports = app;
