@@ -7,10 +7,11 @@
   box-sizing: border-box;
 }
 
-html {
+html, body {
   min-height: 100vh;
   min-width: 100vw;
 }
+
 .mockup-figure {
   background-color: gray;
   margin: 0 16px 0 0;
@@ -31,9 +32,8 @@ body {
   font-size: 10px;
 }
 
-figure#logo-home {
-  height: 200px;
-  width: 200px;
+.figure {
+  margin-bottom: 0;
 }
 
 figure#logo-home {
@@ -55,6 +55,7 @@ figure#logo-home {
   height: 100%;
   width: 100%;
 }
+
 #gmap_canvas {
   height: 100%;
   width: 100%;
@@ -68,4 +69,33 @@ figure#logo-home {
   height: 300px;
   width: 100%;
   overflow-y: scroll;
+}
+
+.servicos {
+  width: 30px;
+}
+
+#barraca-services .form-group {
+  margin-bottom: 0;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+main > .container {
+  padding: 60px 15px 0;
+}
+
+.footer {
+  background-color: #f5f5f5;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
 }
