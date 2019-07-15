@@ -84,6 +84,10 @@ figure#logo-home {
   height: 300px;
   width: 100%;
 }
+#searchmap {
+  height: 450px;
+  width: 450px;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */

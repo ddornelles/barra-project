@@ -1,61 +1,15 @@
-<div class="row">
-  <div class="col-12 mt-3">
-    <div class="alert alert-danger text-center" role="alert">Voce ainda nao tem nenhuma barraca cadastrada.</div>
-    <div class="text-center">
-      <button type="submit" class="btn btn-sm btn-outline-success" data-toggle="modal"
-        data-target="#add-barraca">Cadastrar</button>
+  <div class="row">
+{{#if flag}}
+    <div class="col-12 mt-3">
+      <div class="alert alert-danger text-center" role="alert">Voce ainda nao tem nenhuma barraca cadastrada.</div>
+      <div class="text-center">
+        <a href="/cadastro" role="button" class="btn btn-sm btn-outline-success">Cadastrar</a>
+      </div>
     </div>
+{{/if}}
   </div>
-</div>
 
-<div class="modal fade" id="add-barraca" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <form action="/profile" method="POST" enctype="multipart/form-data">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Cadastro de Barraca</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="barraca">Nome da Barraca</label>
-            <input type="text" class="form-control" name="name" id="barraca" aria-describedby="barracaalert"
-              placeholder="Nome da Barraca">
-          </div>
-          <div class="form-group">
-            <label for="foto-barraca">Foto da Barraca</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="foto-barraca-upload">Upload</span>
-              </div>
-              <div class="custom-file">
-                <input type="file" name="imgPath" class="custom-file-input" id="foto-barraca"
-                  aria-describedby="foto-barraca">
-                <label class="custom-file-label" for="foto-barraca">Choose file</label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="username">Localizaçao</label>
-            <div id="googlemap" class="border"></div>
-            <input type="text" class="form-control" name="longitude" id="longitude" aria-describedby="longitudealert"
-              placeholder="Longitude">
-            <input type="text" class="form-control" name="latitude" id="latitude" aria-describedby="latitudealert"
-              placeholder="Latitude">
-          </div>
-          <div class="form-group">
-            <label for="username">Apresentaçao</label>
-            <div class="input-group">
-              <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-info">Salvar</button>
-          </div>
-      </form>
-    </div>
-  </div>
-</div>
+{{#each result}}
+<h1>{{name}}</h1>
+<img src="{{imgPath}}" alt="">
+{{/each}}
