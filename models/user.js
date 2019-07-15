@@ -9,7 +9,8 @@ const userSchema = new Schema({
     default: false,
   },
   confirmationCode: { type: String, unique: true },
-  password: String,
+  promotionalEmail: { type: String, enum: ['off', 'on'], default: 'off' },
+  password: { type: String, required: true },
   imgName: { type: String, default: 'profilePic' },
   imgPath: { type: String, default: 'https://image.flaticon.com/icons/svg/119/119596.svg' },
   role: {

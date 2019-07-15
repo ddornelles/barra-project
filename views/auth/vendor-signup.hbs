@@ -1,21 +1,25 @@
 <h2>Signup</h2>
 
-<form action="/user-signup" method="POST" id="form-container">
+<form action="/vendor-signup" method="POST" id="form-container">
   <label for="username">Username</label>
   <input id="username" type="text" name="username" placeholder="JonSnow" required>
 
   <br><br>
 
   <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="jonsnow@nightwatch.com">
+  <input id="email" type="email" name="email" placeholder="jonsnow@nightwatch.com" required>
 
   <br><br>
 
+  <label for="code">Digite o seu CPF</label>
+  <input type="text" name="code"
+      pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+      title="Digite o CPF no formato nnn.nnn.nnn-nn" placeholder="e.g. 0XX.0XX.0XX-XX" required>
+
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <input id="password" type="password" name="password" placeholder="Your password" required>
   <br>
 
-  <input type="checkbox" name="promotionalEmail" id="">
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
