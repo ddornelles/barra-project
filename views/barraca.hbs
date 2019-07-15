@@ -1,0 +1,230 @@
+<div class="row">
+  <div class="col-12 mt-3">
+    <form action="/profile" method="get" id="solicitar">
+      <div class="card">
+        <figure class="figure">
+          <img src="https://via.placeholder.com/450x450" class="card-img-top figure-img rounded" alt="Barraca Picture">
+        </figure>
+        <div class="card-body">
+          <h5 class="card-title">Barraca do Fulano</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque non ullam ipsa reprehenderit, omnis nihil.</p>
+        </div>
+        <ul class="list-group list-group-flush" id="barraca-services">
+          <li class="list-group-item">
+            <div class="row form-group d-flex flex-row align-items-center">
+              <div class="col-8">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-umbrella-beach"></i>
+                </span> Barraca  <small>(R$ 00,00)</small>
+              </div>
+              <div class="col-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary decreaseOne" type="button"><i class="fas fa-minus"></i></button>
+                  </div>
+                  <input type="text" name="barraca" id="barraca-serv" class="form-control text-center" min="0" value="0">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary increaseOne" type="button"><i class="fas fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row form-group d-flex flex-row align-items-center">
+              <div class="col-8">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-chair"></i>
+                </span> Cadeira  <small>(R$ 00,00)</small>
+              </div>
+              <div class="col-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary decreaseOne" type="button"><i class="fas fa-minus"></i></button>
+                  </div>
+                  <input type="text" name="cadeira" id="cadeira-serv" class="form-control text-center" min="0" value="0">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary increaseOne" type="button"><i class="fas fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row form-group d-flex flex-row align-items-center">
+              <div class="col-8">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-cookie"></i>
+                </span> Biscoito Doce  <small>(R$ 00,00)</small>
+              </div>
+              <div class="col-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary decreaseOne" type="button"><i class="fas fa-minus"></i></button>
+                  </div>
+                  <input type="text" name="comida" id="biscDoce-serv" class="form-control text-center" min="0" value="0">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary increaseOne" type="button"><i class="fas fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row form-group d-flex flex-row align-items-center">
+              <div class="col-8">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-cookie"></i>
+                </span> Biscoito Salgado  <small>(R$ 00,00)</small>
+              </div>
+              <div class="col-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary decreaseOne" type="button"><i class="fas fa-minus"></i></button>
+                  </div>
+                  <input type="text" name="comida" id="biscSalg-serv" class="form-control text-center" min="0" value="0">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary increaseOne" type="button"><i class="fas fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row form-group d-flex flex-row align-items-center">
+              <div class="col-8">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-bread-slice"></i>
+                </span> Sanduiche Natural  <small>(R$ 00,00)</small>
+              </div>
+              <div class="col-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary decreaseOne" type="button"><i class="fas fa-minus"></i></button>
+                  </div>
+                  <input type="text" name="comida" id="sanduba-serv" class="form-control text-center" min="0" value="0">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary increaseOne" type="button"><i class="fas fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row form-group d-flex flex-row align-items-center">
+              <div class="col-8">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-wine-bottle"></i>
+                </span> Refrigerante  <small>(R$ 00,00)</small>
+              </div>
+              <div class="col-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary decreaseOne" type="button"><i class="fas fa-minus"></i></button>
+                  </div>
+                  <input type="text" name="refrigerante" id="refrigerante-serv" class="form-control text-center" min="0" value="0">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary increaseOne" type="button"><i class="fas fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row form-group d-flex flex-row align-items-center">
+              <div class="col-8">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-beer"></i>
+                </span>
+                Cerveja  <small>(R$ 00,00)</small>
+              </div>
+              <div class="col-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary decreaseOne" type="button"><i class="fas fa-minus"></i></button>
+                  </div>
+                  <input type="text" name="cerveja" id="cerveja-serv" class="form-control text-center" min="0" value="0">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary increaseOne" type="button"><i class="fas fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row form-group d-flex flex-row align-items-center">
+              <div class="col-8">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-cocktail"></i>
+                </span> Caipirinha  <small>(R$ 00,00)</small>
+              </div>
+              <div class="col-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary decreaseOne" type="button" onclick="removeOne();"><i class="fas fa-minus"></i></button>
+                  </div>
+                  <input type="text" name="drink" id="drink-serv" class="form-control text-center" min="0" value="0">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" onclick="addOne();"><i class="fas fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body text-center">
+        <button type="submit" onclick="solicitar()" class="btn btn-xs btn-outline-success">Solicitar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+  <script>
+    {{!-- document.getElementById("solicitar").addEventListener("click", function(event){
+      event.preventDefault()
+    }); --}}
+
+    function addOne() {
+      let count = parseInt(document.getElementById('drink-serv').value, 10);
+      count += 1;
+      return document.getElementById('drink-serv').value = count.toString();
+    }
+
+    function removeOne() {
+      if (document.getElementById('drink-serv').value > 0) {
+        let count = parseInt(document.getElementById('drink-serv').value, 10);
+        count -= 1;
+        return document.getElementById('drink-serv').value = count.toString();
+      }
+    }
+
+    function solicitar() {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-sm btn-success mr-3',
+          cancelButton: 'btn btn-sm btn-danger ml-3'
+        },
+        buttonsStyling: false,
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You will be charged for this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'YES',
+        cancelButtonText: 'NO'
+      }).then((result) => {
+        if (result.value) {
+          swalWithBootstrapButtons.fire(
+            'Ordered!',
+            'Your order has been made.',
+            'success'
+          )
+        }
+      })
+    }
+  </script>
