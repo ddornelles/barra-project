@@ -22,8 +22,8 @@ router.get('/vendor', (req, res, next) => {
   res.render('auth/vendor');
 });
 
-router.get('/barraqueiro', (req, res, next) => {
+/* router.get('/barraqueiro', (req, res, next) => {
   res.render('vendor/profile');
-});
+}); */
 
 module.exports = router;

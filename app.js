@@ -93,8 +93,11 @@ app.use('/', index);
 
 const passportRouter = require('./routes/auth');
 app.use('/', passportRouter);
+
 const userRouter = require('./routes/user');
 app.use('/', userRouter);
 
+const vendorRouter = require('./routes/vendor');
+app.use('/', vendorRouter);
 
 module.exports = app;
