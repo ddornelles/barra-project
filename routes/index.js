@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/beaches', (req, res, next) => {
-  res.render('beaches');
+  res.render('beaches', { GMAPS: process.env.GMAPS });
 });
 
 router.get('/barraca', (req, res, next) => {
@@ -22,8 +22,8 @@ router.get('/vendor', (req, res, next) => {
   res.render('auth/vendor');
 });
 
-router.get('/barraqueiro', (req, res, next) => {
+/* router.get('/barraqueiro', (req, res, next) => {
   res.render('vendor/profile');
-});
+}); */
 
 module.exports = router;

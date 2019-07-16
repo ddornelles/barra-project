@@ -1,14 +1,19 @@
 <div class="row">
   <div class="col-12 col-sm-12">
-    {{!-- <button class="btn btn-secondary" type="submit" id="search-beaches">
-      <i class="fas fa-search-location"></i>
-    </button> --}}
-    <div class="mapouter">
-      <div class="gmap_canvas"><iframe id="gmap_canvas"
-          src="https://maps.google.com/maps?q=Barraca%20da%20Claudia%2C%20Ipanema&t=&z=17&ie=UTF8&iwloc=&output=embed"
-          frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
-          href="https://www.maps-erstellen.de"></a></div>
-    </div>
+    <form action="/beaches" method="GET" id="search-home">
+      <div class="form-group">
+        <div class="input-group">
+          {{!-- <input type="text" id="pac-input" class="controls form-control input-group-text" placeholder="Busque por praias ou por barracas."> --}}
+          
+           <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+          <div class="input-group-append">
+            <button class="btn btn-info" type="submit" id="button-search">
+              <i class="fas fa-search-location"></i>
+            </button>
+          </div>
+        </div>
+    </form>
+    <div id="searchmap"></div>
   </div>
   <div class="col-12 col-sm-12">
     <hr>
