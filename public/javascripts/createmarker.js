@@ -104,8 +104,7 @@ function initAutocomplete() {
               `;
             });
           }
-          console.log(barracaList);
-          console.log('cloooooooose----->places', closePlaces);
+          
           inject(closePlaces);
         })
         .catch((error) => {
