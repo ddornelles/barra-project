@@ -10,9 +10,9 @@ router.get('/beaches', (req, res, next) => {
   res.render('beaches', { GMAPS: process.env.GMAPS });
 });
 
-router.get('/barraca', (req, res, next) => {
+/* router.get('/barraca', (req, res, next) => {
   res.render('barraca');
-});
+}); */
 
 /* router.get('/profile', (req, res, next) => {
   res.render('user/profile');

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-12 mt-3">
-    <form action="/profile" method="get" id="solicitar">
+    <form action="/" method="POST" id="solicitar">
       <div class="card">
         <figure class="figure">
           <img src="https://via.placeholder.com/450x450" class="card-img-top figure-img rounded" alt="Barraca Picture">
@@ -13,18 +13,18 @@
           <li class="list-group-item">
             <div class="row form-group d-flex flex-row align-items-center">
               <div class="col-8">
-                <span class="d-inline-block servicos text-center">
+                <span id="barraca-valor" class="d-inline-block servicos text-center">
                   <i class="fas fa-umbrella-beach"></i>
                 </span> Barraca  <small>(R$ 00,00)</small>
               </div>
               <div class="col-4">
                 <div class="input-group input-group-sm">
                   <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary decreaseOne" type="button"><i class="fas fa-minus"></i></button>
+                    <button class="btn btn-outline-secondary decreaseOne" type="button" onclick="removeOne('barraca-serv');"><i class="fas fa-minus"></i></button>
                   </div>
                   <input type="text" name="barraca" id="barraca-serv" class="form-control text-center" min="0" value="0">
                   <div class="input-group-append">
-                    <button class="btn btn-outline-secondary increaseOne" type="button"><i class="fas fa-plus"></i></button>
+                    <button class="btn btn-outline-secondary increaseOne" type="button" onclick="addOne('barraca-serv');"><i class="fas fa-plus"></i></button>
                   </div>
                 </div>
               </div>
@@ -40,17 +40,17 @@
               <div class="col-4">
                 <div class="input-group input-group-sm">
                   <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary decreaseOne" type="button"><i class="fas fa-minus"></i></button>
+                    <button class="btn btn-outline-secondary decreaseOne" type="button" onclick="removeOne('cadeira-serv');"><i class="fas fa-minus"></i></button>
                   </div>
                   <input type="text" name="cadeira" id="cadeira-serv" class="form-control text-center" min="0" value="0">
                   <div class="input-group-append">
-                    <button class="btn btn-outline-secondary increaseOne" type="button"><i class="fas fa-plus"></i></button>
+                    <button class="btn btn-outline-secondary increaseOne" type="button" onclick="addOne('cadeira-serv');"><i class="fas fa-plus"></i></button>
                   </div>
                 </div>
               </div>
             </div>
           </li>
-          <li class="list-group-item">
+          {{!-- <li class="list-group-item">
             <div class="row form-group d-flex flex-row align-items-center">
               <div class="col-8">
                 <span class="d-inline-block servicos text-center">
@@ -170,7 +170,7 @@
                 </div>
               </div>
             </div>
-          </li>
+          </li> --}}
         </ul>
       </div>
       <div class="card-body text-center">
@@ -183,21 +183,19 @@
 
 
   <script>
-    {{!-- document.getElementById("solicitar").addEventListener("click", function(event){
-      event.preventDefault()
-    }); --}}
-
-    function addOne() {
-      let count = parseInt(document.getElementById('drink-serv').value, 10);
-      count += 1;
-      return document.getElementById('drink-serv').value = count.toString();
+    function addOne(serviceId) {
+      if (document.getElementById(serviceId).value >= 0) {
+        let count = parseInt(document.getElementById(serviceId).value, 10);
+        count += 1;
+        return document.getElementById(serviceId).value = count.toString();
+      }
     }
 
-    function removeOne() {
-      if (document.getElementById('drink-serv').value > 0) {
-        let count = parseInt(document.getElementById('drink-serv').value, 10);
+    function removeOne(serviceId) {
+      if (document.getElementById(serviceId).value > 0) {
+        let count = parseInt(document.getElementById(serviceId).value, 10);
         count -= 1;
-        return document.getElementById('drink-serv').value = count.toString();
+        return document.getElementById(serviceId).value = count.toString();
       }
     }
 
