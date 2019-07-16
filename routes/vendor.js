@@ -12,7 +12,7 @@ router.get('/cadastro', ensureLoggedIn(), (req, res, next) => {
 });
 
 router.post('/cadastro', uploadCloud.single('imgPath'), (req, res, next) => {
-  console.log(req.body)
+  console.log(req.body);
   const { name, latitude, longitude, description } = req.body;
   const location = {
     type: 'Point',
