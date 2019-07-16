@@ -1,11 +1,11 @@
 function initAutocomplete() {
-  document.getElementById('button-search').onclick = function() {
+  /* document.getElementById('button-search').onclick = function() {
     const input = document.getElementById('pac-input');
 
     google.maps.event.trigger(input, 'focus', {});
     google.maps.event.trigger(input, 'keydown', { keyCode: 13 });
     google.maps.event.trigger(this, 'focus', {});
-  };
+  }; */
 
   const map = new google.maps.Map(document.getElementById('searchmap'), {
     center: { lat: -22.9644821, lng: -43.2308992 },
@@ -91,12 +91,13 @@ function initAutocomplete() {
             arr.forEach((item) => {
               barracaList.innerHTML += `
               <li class="list-group-item d-flex">
+                <input type="text" name="barraca-id" value="${item._id}" class="id-hidden" hidden>
                 <div class="media">
                   <figure class="figure">
                     <img src="${item.imgPath}" class="figure-img img-fluid rounded align-self-start mr-3" alt="Barraca Picture">
                   </figure>
                   <div class="media-body">
-                    <h5 class="mt-0"><a href="#" data-toggle="modal" data-target="#exampleModal">${item.name}</a></h5>
+                    <h5 class="mt-0"><a href="#" class="openModal" data-toggle="modal" data-target="#exempleModal1">${item.name}</a></h5>
                     <p>${item.description}</p>
                   </div>
                 </div>
@@ -104,8 +105,47 @@ function initAutocomplete() {
               `;
             });
           }
-          
+
           inject(closePlaces);
+          console.log(closePlaces)
+          const idHidden = document.querySelectorAll('.id-hidden');
+
+          const modalContent = document.getElementById('modal-content');
+          modalContent.innerHTML = '';
+
+          document.querySelectorAll('.openModal').forEach((item, index) => {
+            item.onclick = () => {
+              let x = closePlaces.filter(item => item._id === idHidden[index].value);
+              console.log(x)
+              modalContent.innerHTML = `
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">${x[0].name}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <figure class="figure">
+                    <img src="${x[0].imgPath}" class="figure-img img-fluid rounded" alt="Barraca Picture">
+                  </figure>
+                  <p><b>Descriçao:</b><br>${x[0].description}</p>
+                  <p><b>Serviços:</b><br>
+                    <i class="fas fa-umbrella-beach"></i> <i class="fas fa-utensils"></i> <i class="fas fa-beer"></i> <i class="fas fa-cocktail"></i></p>
+                  <p class="alert alert-warning" role="alert">
+                    <small>Alerta de <a href="#" class="alert-link">registro</a>/<a href="#"
+                        class="alert-link">login</a></small>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <a href="/profile" class="btn btn-info">Reservar</a>
+                </div>
+              </div>
+              `
+            };
+          });
+
+          console.log(idHidden[0].value);
         })
         .catch((error) => {
           console.log(error);
@@ -123,8 +163,6 @@ function initAutocomplete() {
       } else {
         bounds.extend(place.geometry.location);
       }
-
-      console.log(closePlaces);
     });
     map.fitBounds(bounds);
   });
@@ -155,4 +193,5 @@ function initAutocomplete() {
   };
 
   getBarracas();
+
 }
