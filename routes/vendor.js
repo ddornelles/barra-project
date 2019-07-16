@@ -43,4 +43,11 @@ router.get('/api', (req, res, next) => {
     .catch(error => console.log(error));
  });
 
+router.get('/reserva/:id', ensureLoggedIn(), (req, res, next) => {
+  const { id } = req.params;
+  /* Barracas.findOneById(id)
+    .then(answer => res.render()) */
+    res.render('barraca');
+})
+
 module.exports = router;

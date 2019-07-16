@@ -138,7 +138,7 @@ function initAutocomplete() {
                   </p>
                 </div>
                 <div class="modal-footer">
-                  <a href="/profile" class="btn btn-info">Reservar</a>
+                  <a href="/reserva/${x[0]._id}" class="btn btn-info">Reservar</a>
                 </div>
               </div>
               `
