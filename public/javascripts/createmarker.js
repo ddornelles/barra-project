@@ -1,12 +1,10 @@
 function initAutocomplete() {
-
-  document.getElementById('button-search').onclick = function () {
+  document.getElementById('button-search').onclick = function() {
     const input = document.getElementById('pac-input');
 
     google.maps.event.trigger(input, 'focus', {});
     google.maps.event.trigger(input, 'keydown', { keyCode: 13 });
     google.maps.event.trigger(this, 'focus', {});
-
   };
 
   const map = new google.maps.Map(document.getElementById('searchmap'), {
@@ -43,28 +41,98 @@ function initAutocomplete() {
     // For each place, get the icon, name and location.
     const bounds = new google.maps.LatLngBounds();
     places.forEach((place) => {
+      let closePlaces = [];
       if (!place.geometry) {
         console.log('Returned place contains no geometry');
         return;
       }
-      document.getElementById('search-result').innerHTML = place.formatted_address;
-      // Create a marker for each place.
 
-      console.log(place.geometry.location.lat());
-      console.log(place.geometry.location.lng());
+      axios
+        .get('/api')
+        .then((response) => {
+          const calculateDist = (
+            markerCoordinates,
+            targetLatitude,
+            targetLongitude,
+          ) => {
+            const marker = new google.maps.LatLng(
+              targetLatitude,
+              targetLongitude,
+            );
+            return google.maps.geometry.spherical.computeDistanceBetween(
+              markerCoordinates,
+              marker,
+            );
+          };
 
+          const compare = (barraca) => {
+            barraca.forEach((item) => {
+              if (
+                calculateDist(
+                  place.geometry.location,
+                  item.location.coordinates[1],
+                  item.location.coordinates[0],
+                ) < 3000
+              ) {
+                item.distance = calculateDist(
+                  place.geometry.location,
+                  item.location.coordinates[1],
+                  item.location.coordinates[0],
+                ).toFixed(2);
+                closePlaces.push(item);
+              }
+            });
+          };
+          compare(response.data.barracas);
+
+          const barracaList = document.querySelector('#list-barracas');
+          barracaList.innerHTML = '';
+          function inject(arr) {
+            arr.forEach((item) => {
+              barracaList.innerHTML += `
+              <li class="list-group-item d-flex">
+                <div class="media">
+                  <figure class="figure">
+                    <img src="${item.imgPath}" class="figure-img img-fluid rounded align-self-start mr-3" alt="Barraca Picture">
+                  </figure>
+                  <div class="media-body">
+                    <h5 class="mt-0"><a href="#" data-toggle="modal" data-target="#exampleModal">${item.name}</a></h5>
+                    <p>${item.description}</p>
+                  </div>
+                </div>
+              </li>
+              `;
+            });
+          }
+          console.log(barracaList);
+          console.log('cloooooooose----->places', closePlaces);
+          inject(closePlaces);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      document.getElementById('search-result').innerHTML =
+        place.formatted_address;
+
+      // will inject nearby shops to the query search
+
+      // don't know what does
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
         bounds.union(place.geometry.viewport);
       } else {
         bounds.extend(place.geometry.location);
       }
+
+      console.log(closePlaces);
     });
     map.fitBounds(bounds);
   });
 
   const getBarracas = () => {
-    axios.get('/api')
+    axios
+      .get('/api')
       .then((response) => {
         placeBarracas(response.data.barracas);
       })
