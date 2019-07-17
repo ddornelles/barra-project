@@ -29,13 +29,8 @@ routerAuth.post('/signup', (req, res, next) => {
 
   // check for empty strings
 
-  if (name === '' || password === '') {
-    res.render('auth/signup', { message: 'Indicate name and password' });
-    return;
-  }
-
-  if (username === '') {
-    res.render('auth/signup', { message: 'Indicate your email' });
+  if (name === '' || password === '' || username === '') {
+    res.render('auth/signup', { message: 'Indicate name, password and email' });
     return;
   }
 

@@ -87,17 +87,23 @@ function initAutocomplete() {
 
           const barracaList = document.querySelector('#list-barracas');
           barracaList.innerHTML = '';
+
+          const node = document.createElement('p');
+          const textnode = document.createTextNode('Barracas encontradas:');
+          node.appendChild(textnode);
+          document.getElementById('list-barracas').appendChild(node);
+
           function inject(arr) {
             arr.forEach((item) => {
               barracaList.innerHTML += `
               <li class="list-group-item d-flex">
                 <input type="text" name="barraca-id" value="${item._id}" class="id-hidden" hidden>
                 <div class="media">
-                  <figure class="figure">
+                  <figure class="figure beaches mr-2">
                     <img src="${item.imgPath}" class="figure-img img-fluid rounded align-self-start mr-3" alt="Barraca Picture">
                   </figure>
-                  <div class="media-body">
-                    <h5 class="mt-0"><a href="#" class="openModal" data-toggle="modal" data-target="#exempleModal1">${item.name}</a></h5>
+                  <div class="media-body ml-2">
+                    <h6 class="mt-0"><a href="#" class="openModal" data-toggle="modal" data-target="#barracaModal">${item.name}</a></h6>
                     <p>${item.description}</p>
                   </div>
                 </div>
@@ -107,7 +113,7 @@ function initAutocomplete() {
           }
 
           inject(closePlaces);
-          console.log(closePlaces)
+          /* console.log(closePlaces) */
           const idHidden = document.querySelectorAll('.id-hidden');
 
           const modalContent = document.getElementById('modal-content');
@@ -118,9 +124,8 @@ function initAutocomplete() {
               let x = closePlaces.filter(item => item._id === idHidden[index].value);
               console.log(x)
               modalContent.innerHTML = `
-              <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">${x[0].name}</h5>
+                  <h6 class="modal-title" id="exampleModalLabel">${x[0].name}</h6>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -129,18 +134,22 @@ function initAutocomplete() {
                   <figure class="figure">
                     <img src="${x[0].imgPath}" class="figure-img img-fluid rounded" alt="Barraca Picture">
                   </figure>
-                  <p><b>Descriçao:</b><br>${x[0].description}</p>
+                  <p><b>Descriçao:</b><br><small>${x[0].description}</small></p>
                   <p><b>Serviços:</b><br>
-                    <i class="fas fa-umbrella-beach"></i> <i class="fas fa-utensils"></i> <i class="fas fa-beer"></i> <i class="fas fa-cocktail"></i></p>
-                  <p class="alert alert-warning" role="alert">
-                    <small>Alerta de <a href="#" class="alert-link">registro</a>/<a href="#"
-                        class="alert-link">login</a></small>
+                    <span class="d-flex justify-content-around">
+                      <i class="fas fa-umbrella-beach"></i>
+                      <i class="fas fa-utensils"></i>
+                      <i class="fas fa-beer"></i>
+                      <i class="fas fa-cocktail"></i>
+                    </span>
                   </p>
+                </span>
+                <div class="modal-footer d-flex flex-column">
+                <p class="alert alert-warning" role="alert">
+                    <small>Será pedido login ou registro para realizar um pedido.</small>
+                  </p>
+                  <p><a href="/reserva/${x[0]._id}" class="btn btn-info">Reservar</a></p>
                 </div>
-                <div class="modal-footer">
-                  <a href="/reserva/${x[0]._id}" class="btn btn-info">Reservar</a>
-                </div>
-              </div>
               `
             };
           });
@@ -151,8 +160,7 @@ function initAutocomplete() {
           console.log(error);
         });
 
-      document.getElementById('search-result').innerHTML =
-        place.formatted_address;
+      document.getElementById('search-result').innerHTML = place.formatted_address;
 
       // will inject nearby shops to the query search
 

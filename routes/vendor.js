@@ -47,7 +47,7 @@ router.get('/reserva/:id', ensureLoggedIn(), (req, res, next) => {
   const { id } = req.params;
   /* Barracas.findOneById(id)
     .then(answer => res.render()) */
-    res.render('barraca');
+    res.render('./reserva/barraca');
 })
 
 module.exports = router;

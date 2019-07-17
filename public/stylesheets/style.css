@@ -32,13 +32,27 @@ body {
   font-size: 10px;
 }
 
-.figure {
-  margin-bottom: 0;
-}
-
 figure#logo-home {
   height: 200px;
   width: 200px;
+}
+
+.figure {
+  margin-bottom: 0;
+}
+.figure.beaches {
+  width: 50px;
+}
+.figure.beaches img {
+  width: 100%;
+}
+
+#barracaModal figure {
+  width: 100%;
+}
+
+#barracaModal figure img {
+  width: 100%;
 }
 
 .mapouter {
@@ -66,7 +80,7 @@ figure#logo-home {
 }
 
 #list-barracas {
-  height: 300px;
+  height: 310px;
   width: 100%;
   overflow-y: scroll;
 }
@@ -85,7 +99,7 @@ figure#logo-home {
   width: 100%;
 }
 #searchmap {
-  height: 450px;
+  height: 30vh;
   /* width: 450px; */
 }
 

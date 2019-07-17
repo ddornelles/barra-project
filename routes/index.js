@@ -18,6 +18,18 @@ router.get('/beaches', (req, res, next) => {
   res.render('user/profile');
 }); */
 
+router.get('/reserva/user', (req, res, next) => {
+  res.render('reserva/user');
+});
+
+router.get('/user/profile', (req, res, next) => {
+  res.render('user/profile');
+});
+
+router.get('/user/edit', (req, res, next) => {
+  res.render('user/edit-user');
+});
+
 router.get('/vendor', (req, res, next) => {
   res.render('auth/vendor');
 });
