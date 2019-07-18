@@ -8,7 +8,7 @@ const Barraca = require('../models/barraca');
 const uploadCloud = require('../config/cloudinary.js');
 
 router.get('/cadastro', ensureLoggedIn(), (req, res, next) => {
-  res.render('./vendor/querobarraca', { GMAPS: process.env.GMAPS });
+  res.render('./vendor/add-barraca', { GMAPS: process.env.GMAPS });
 });
 
 router.post('/cadastro', uploadCloud.single('imgPath'), (req, res, next) => {

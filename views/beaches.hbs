@@ -1,22 +1,24 @@
-<div class="row">
-  <div class="col-12 col-sm-12 mt-3">
-    <h6>Encontre barracas proximas da sua praia.</h6>
-    <div class="form-group">
-      <div class="input-group">
-        <input type="text" id="pac-input" class="controls form-control input-group-text" placeholder="Busque por praias ou por barracas.">
-        <div class="input-group-append">
-          <button class="btn btn-info" type="submit" id="button-search">
-            <i class="fas fa-search-location"></i>
-          </button>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+      <h6>Encontre barracas proximas da sua praia.</h6>
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" id="pac-input" class="controls form-control input-group-text" placeholder="Busque por praias ou por barracas.">
+          <div class="input-group-append">
+            <button class="btn btn-info" type="submit" id="button-search">
+              <i class="fas fa-search-location"></i>
+            </button>
+          </div>
         </div>
       </div>
+      <div id="searchmap" class="mt-3"></div>
     </div>
-    <div id="searchmap" class="mt-3"></div>
-  </div>
-  <div class="col-12 col-sm-12">
-    <hr>
-    <h6 id="search-result"></h6>
-    <ul class="list-group" id="list-barracas"></ul>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+      <hr>
+      <h6 id="search-result"></h6>
+      <ul class="list-group" id="list-barracas"></ul>
+    </div>
   </div>
 </div>
 

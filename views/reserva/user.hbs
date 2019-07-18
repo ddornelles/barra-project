@@ -1,35 +1,38 @@
-<div class="row">
-  <div class="col-12 mt-3 d-flex justify-content-between align-items-center">
-    <h6 class="d-inline-block">Minha Reserva</h6> <a href="/user/profile" class="badge badge-info">Meu Perfil</a>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-3 d-flex justify-content-between align-items-center">
+      <h6 class="d-inline-block">Minha Reserva</h6> <a href="/profile" class="badge badge-info">Meu Perfil</a>
+    </div>
 
-  <div class="col-12">
-    <hr>
-    <form action="" method="get" id="">
-      <div class="card">
-        <div class="card-body">
-          {{!-- <figure class="figure mr-3">
+    <div class="col-12">
+      <hr>
+      <form action="" method="get" id="">
+        <div class="card">
+          <div class="card-body">
+            {{!-- <figure class="figure mr-3">
             <img src="https://via.placeholder.com/50" class="figure-img img-fluid rounded align-self-start mr-3" alt="Barraca Picture">
           </figure> --}}
-          <p class="card-title">Nome da Barraca <span data-toggle="tooltip" data-placement="top" title="Contato"><i class="far fa-comment-alt"></i></span></p>
-          <p class="card-text"><small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque non ullam ipsa reprehenderit, omnis nihil.</small></p>
-        </div>
-        <div class="card-body border-top">
-          <h6 class="card-title">Minha Comanda</h6>
-          <div class="d-flex flex-column">
-            <div class="d-flex flex-row justify-content-between border-top pb-2 pt-2">
-              <span class="d-inline-block servicos text-center">
-                <i class="fas fa-umbrella-beach"></i>
-              </span>
-              <span><small>R$ 00,00</small></span>
-            </div>
-            <div class="d-flex flex-row justify-content-between border-top pb-2 pt-2">
-              <span class="d-inline-block servicos text-center">
-                <i class="fas fa-chair"></i>
-              </span>
-              <span><small>R$ 00,00</small></span>
-            </div>
-            {{!-- <div class="d-flex flex-row justify-content-between border-top pb-2 pt-2">
+            <p class="card-title">Nome da Barraca <span data-toggle="tooltip" data-placement="top" title="Contato"><i
+                  class="far fa-comment-alt"></i></span></p>
+            <p class="card-text"><small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque non ullam ipsa
+                reprehenderit, omnis nihil.</small></p>
+          </div>
+          <div class="card-body border-top">
+            <h6 class="card-title">Minha Comanda</h6>
+            <div class="d-flex flex-column">
+              <div class="d-flex flex-row justify-content-between border-top pb-2 pt-2">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-umbrella-beach"></i>
+                </span>
+                <span><small>R$ 00,00</small></span>
+              </div>
+              <div class="d-flex flex-row justify-content-between border-top pb-2 pt-2">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-chair"></i>
+                </span>
+                <span><small>R$ 00,00</small></span>
+              </div>
+              {{!-- <div class="d-flex flex-row justify-content-between border-top pb-2 pt-2">
               <span class="d-inline-block servicos text-center">
                 <i class="fas fa-cookie"></i>
               </span>
@@ -59,16 +62,17 @@
               </span>
               <span><small>R$ 00,00</small></span>
             </div> --}}
-            <div class="d-flex flex-row justify-content-end border-top pt-2">
-              <span><small><b>R$ 00,00</b></small></span>
+              <div class="d-flex flex-row justify-content-end border-top pt-2">
+                <span><small><b>R$ 00,00</b></small></span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card-body text-center">
-        <a href="/reserva/:id" class="btn btn-sm btn-outline-success">Solicitar</a>
-        <button type="submit" class="btn btn-sm btn-outline-danger" id="endService">Finalizar</button>
-      </div>
-    </form>
+        <div class="card-body text-center">
+          <a href="/reserva/:id" class="btn btn-sm btn-outline-success">Solicitar</a>
+          <button type="submit" class="btn btn-sm btn-outline-danger" id="endService">Finalizar</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

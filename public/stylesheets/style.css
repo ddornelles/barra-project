@@ -37,6 +37,10 @@ figure#logo-home {
   width: 200px;
 }
 
+.home-info {
+  color: white;
+}
+
 .figure {
   margin-bottom: 0;
 }
@@ -80,7 +84,7 @@ figure#logo-home {
 }
 
 #list-barracas {
-  height: 310px;
+  min-height: 310px;
   width: 100%;
   overflow-y: scroll;
 }
@@ -99,7 +103,7 @@ figure#logo-home {
   width: 100%;
 }
 #searchmap {
-  height: 30vh;
+  min-height: 270px;
   /* width: 450px; */
 }
 

@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-3 border-bottom pb-2">
+      <h6>Cadastro de Barraca</h6>
+    </div>
+  </div>
+  <form action="/reserva/vendor" method="GET" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-12 mt-3 border-bottom pb-3">
+        <input type="text" name="id" value="{{answer.id}}" hidden>
+        <div class="form-group">
+          <label for="barraca">Nome da Barraca</label>
+          <input type="text" class="form-control" name="name" id="barraca" aria-describedby="barracaalert"
+            placeholder="Nome da Barraca">
+        </div>
+        <div class="form-group">
+          <label for="foto-barraca">Foto da Barraca</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="foto-barraca-upload">Upload</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" name="imgPath" class="custom-file-input" id="foto-barraca"
+                aria-describedby="foto-barraca">
+              <label class="custom-file-label" for="foto-barraca">Choose file</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="username">Posicione o marcador no local onde fica sua barraca.</label>
+          <div id="googlemap" class="border"></div>
+          <input type="text" class="form-control" name="longitude" id="longitude" aria-describedby="longitudealert"
+            placeholder="Longitude" hidden>
+          <input type="text" class="form-control" name="latitude" id="latitude" aria-describedby="latitudealert"
+            placeholder="Latitude" hidden>
+        </div>
+        <div class="form-group">
+          <label for="username">Apresentaçao</label>
+          <div class="input-group">
+            <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
+        <h6 class="pb-2">Meus Produtos</h6>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="d-flex flex-row flew-wrap align-items-center">
+              <div class="col-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 mb-1">
+                <span id="barraca-valor" class="d-inline-block text-center">
+                  <i class="fas fa-umbrella-beach"></i>
+                </span> Barraca
+              </div>
+              <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Qt.</span>
+                  </div>
+                  <input type="text" name="barraca" id="barraca-serv" class="form-control text-center" min="0"
+                    value="0">
+                </div>
+              </div>
+              <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">R$</span>
+                  </div>
+                  <input type="text" name="barraca" id="barraca-serv" class="form-control text-center" min="0"
+                    value="0">
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="d-flex flex-row align-items-center">
+              <div class="col-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 mb-1">
+                <span class="d-inline-block text-center">
+                  <i class="fas fa-chair"></i>
+                </span> Cadeira
+              </div>
+              <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Qt.</span>
+                  </div>
+                  <input type="text" name="barraca" id="barraca-serv" class="form-control text-center" min="0"
+                    value="0">
+                </div>
+              </div>
+              <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">R$</span>
+                  </div>
+                  <input type="text" name="barraca" id="barraca-serv" class="form-control text-center" min="0"
+                    value="0">
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <hr>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-outline-info">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

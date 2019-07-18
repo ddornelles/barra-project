@@ -136,8 +136,9 @@ function initAutocomplete() {
                   </figure>
                   <p><b>Descriçao:</b><br><small>${x[0].description}</small></p>
                   <p><b>Serviços:</b><br>
-                    <span class="d-flex justify-content-around">
+                    <span class="d-flex justify-content-around mt-1">
                       <i class="fas fa-umbrella-beach"></i>
+                      <i class="fas fa-chair"></i>
                       <i class="fas fa-utensils"></i>
                       <i class="fas fa-beer"></i>
                       <i class="fas fa-cocktail"></i>
@@ -146,7 +147,7 @@ function initAutocomplete() {
                 </span>
                 <div class="modal-footer d-flex flex-column">
                 <p class="alert alert-warning" role="alert">
-                    <small>Será pedido login ou registro para realizar um pedido.</small>
+                    <small>Será pedido login ou registro para realizar a reserva.</small>
                   </p>
                   <p><a href="/reserva/${x[0]._id}" class="btn btn-info">Reservar</a></p>
                 </div>
