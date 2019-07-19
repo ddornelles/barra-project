@@ -8,7 +8,6 @@ const bcryptSalt = 10;
 const nodemailer = require('nodemailer');
 const passport = require('passport');
 const User = require('../models/user');
-const Vendor = require('../models/vendor');
 
 // signup for users
 routerAuth.get('/signup', ensureLoggedOut(), (req, res, next) => {
@@ -17,7 +16,6 @@ routerAuth.get('/signup', ensureLoggedOut(), (req, res, next) => {
 
 
 routerAuth.post('/signup', (req, res, next) => {
-  console.log(req.body);
   const { name, username, password, promotionalEmail, role } = req.body;
 
   // will create the auth token generating a random combinantion

@@ -100,4 +100,7 @@ app.use('/', userRouter);
 const vendorRouter = require('./routes/vendor');
 app.use('/', vendorRouter);
 
+const reservation = require('./routes/reserva');
+app.use('/', reservation);
+
 module.exports = app;

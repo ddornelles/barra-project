@@ -1,7 +1,7 @@
 
-function startMap() {
+function anotherMap() {
   // Initialize the map
-  const map = new google.maps.Map(document.getElementById('googlemap'), {
+  const map = new google.maps.Map(document.getElementById('newmap'), {
     zoom: 15,
     center: new google.maps.LatLng(-22.9732303, -43.2033079),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -50,5 +50,5 @@ function startMap() {
 }
 
 window.onload = () => {
-  startMap();
+  anotherMap();
 };

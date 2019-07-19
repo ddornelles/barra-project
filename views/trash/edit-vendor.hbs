@@ -1,29 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 mt-3 border-bottom pb-2">
-      <h6 class="text-uppercase">Meu Perfil ({{role}})</h6>
+    <div class="col-12 mt-3">
+      <h6>Meus Dados</h6>
     </div>
   </div>
-  <form action="/edit" method="post" enctype="multipart/form-data">
+  <form action="" method="POST" enctype="multipart/form-data">
     <div class="row">
-      <div class="col-12 mt-3">
-        <div class="d-flex flex-row justify-content-center">
-          <div class="d-flex flex-column">
-          <figure id="profile-pic" class="figure">
-            <img src="{{imgPath}}" class="figure-img rounded-circle objCover" alt="Profile Picture">
+      <div class="col-12">
+        <hr>
+        <div class="d-flex flex-column text-center">
+          <figure class="figure">
+            <img src="{{imgPath}}" class="figure-img rounded-circle" alt="Profile Picture">
           </figure>
-          <h6 class="mt-2 text-center">{{name}} </h6>
-          </div>
+          <h6>{{name}} </h6>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-12">
-        <h6 class="text-uppercase">Meus Dados</h6>
+        <h6>Meus Dados</h6>
         <hr>
       </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      <div class="col-6">
         <div class="form-group">
           <label for="foto-barraca">Foto</label>
           <div class="input-group">
@@ -38,28 +37,29 @@
           </div>
         </div>
       </div>
-
-      <div class="col-7 col-sm-8 col-md-4 col-lg-3 col-xl-3">
+    </div>
+    <div class="row">
+      <div class="col-6">
         <div class="form-group">
           <label for="name">Nome</label>
           <input type="text" class="form-control" name="name" aria-describedby="namealert" value="{{name}}"
             required>
         </div>
       </div>
-      <div class="col-5 col-sm-4 col-md-6 col-lg-4 col-xl-4">
+      <div class="col-3">
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="text" class="form-control" name="age" aria-describedby="agealert" value="{{age}}" required>
+        </div>
+      </div>
+      <div class="col-8">
         <div class="form-group">
           <label for="cpf">CPF</label>
           <input type="text" class="form-control" name="cpf" aria-describedby="cpfalert" value="{{cpf}}"
             required>
         </div>
       </div>
-      <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1">
-        <div class="form-group">
-          <label for="age">Age</label>
-          <input type="text" class="form-control" name="age" aria-describedby="agealert" value="{{age}}" required>
-        </div>
-      </div>
-      <div class="col-4 col-sm-3 col-md-6 col-lg-4 col-xl-4">
+      <div class="col-4">
         <div class="form-group">
           <label for="exampleInputTitle1">Title:</label>
           <div class="input-group mb-3">
@@ -74,7 +74,7 @@
           </div>
         </div>
       </div>
-      <div class="col-5 col-sm-4 col-md-6 col-lg-4 col-xl-4">
+      <div class="col-5">
         <div class="form-group">
           <label for="exampleInputContact1">Cellphone</label>
           <input type="text" class="form-control" name="contact" id="exampleInputContact1" value="{{contact}}"

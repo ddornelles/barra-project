@@ -1,11 +1,4 @@
 function initAutocomplete() {
-  /* document.getElementById('button-search').onclick = function() {
-    const input = document.getElementById('pac-input');
-
-    google.maps.event.trigger(input, 'focus', {});
-    google.maps.event.trigger(input, 'keydown', { keyCode: 13 });
-    google.maps.event.trigger(this, 'focus', {});
-  }; */
 
   const map = new google.maps.Map(document.getElementById('searchmap'), {
     center: { lat: -22.9644821, lng: -43.2308992 },
@@ -72,13 +65,14 @@ function initAutocomplete() {
                   place.geometry.location,
                   item.location.coordinates[1],
                   item.location.coordinates[0],
-                ) < 3000
+                ) < 1000
               ) {
                 item.distance = calculateDist(
                   place.geometry.location,
                   item.location.coordinates[1],
                   item.location.coordinates[0],
-                ).toFixed(2);
+                ).toFixed(0);
+
                 closePlaces.push(item);
               }
             });
@@ -104,7 +98,7 @@ function initAutocomplete() {
                   </figure>
                   <div class="media-body ml-2">
                     <h6 class="mt-0"><a href="#" class="openModal" data-toggle="modal" data-target="#barracaModal">${item.name}</a></h6>
-                    <p>${item.description}</p>
+                    <p>Está a ${item.distance} metros da sua busca.</p>
                   </div>
                 </div>
               </li>

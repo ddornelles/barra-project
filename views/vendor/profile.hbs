@@ -10,77 +10,56 @@
     {{/if}}
   </div>
 
+  {{#if profileFlag}}
   <div class="row">
     <div class="col-12 mt-3 border-bottom pb-2 d-flex justify-content-between align-items-center">
-      <h6>Meu Perfil (Vendor)</h6><a href="/vendor/edit" class="badge badge-warning">Edit</a>
+      <h6 class="text-uppercase">Meu Perfil</h6><a href="/edit" class="badge badge-warning">Edit</a>
     </div>
   </div>
   <div class="row mt-3">
-    <div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
-      <div class="d-flex flex-column text-center">
-        <figure class="figure">
-          <img src="https://via.placeholder.com/75" class="figure-img rounded-circle" alt="Profile Picture">
-        </figure>
-        <h6>Username </h6>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div class="d-flex flex-row justify-content-center">
+        <div class="d-flex flex-column">
+          <figure id="profile-pic" class="figure text-center">
+            <img src="{{answer.imgPath}}" class="figure-img rounded-circle objCover" alt="Profile Picture">
+          </figure>
+          <h6 class="mt-2 text-center">{{answer.name}}</h6>
+        </div>
       </div>
     </div>
   </div>
-  <div class="row mt-3">
-    <div class="col-12 col-sm-4 col-md-3 col-lg-3 col-xl-2">
-      <h6>Nome</h6>
-      <p>Nome</p>
-    </div>
-    <div class="col-12 col-sm-8 col-md-4 col-lg-3 col-xl-3">
-      <h6>Sobrenome</h6>
-      <p>Sobrenome</p>
-    </div>
-    <div class="col-12 col-sm-4 col-md-3 col-lg-2 col-xl-2">
-      <h6>CPF</h6>
-      <p>000.000.000-00</p>
-    </div>
-    <div class="col-3 col-sm-2 col-md-4 col-lg-3 col-xl-1">
-      <h6>Age</h6>
-      <p>00</p>
-    </div>
-    <div class="col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-      <h6>Gender:</h6>
-      <p>Male</p>
-    </div>
-    <div class="col-5 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-      <h6>Cellphone</h6>
-      <p>(--) ----- ----</p>
-    </div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-6">
-      <h6>Email address</h6>
-      <p>email@email.com</p>
-    </div>
-  </div>
 
-  <div class="row mt-3">
+  <div class="row">
     <div class="col-12 pb-2 border-bottom d-flex justify-content-between align-items-center">
-      <h6>Minha Barraca</h6><a href="/vendor/edit-barraca" class="badge badge-warning">Edit</a>
+      <h6 class="text-uppercase">Minha Barraca</h6><a href="/barraca/edit/{{answer._id}}" class="badge badge-warning">Edit</a>
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
+    <div class="col-6 col-sm-6 col-md-4 col-lg-6 col-xl-6 mt-3">
       <div class="card-deck">
         {{#each result}}
-        <div class="card">
-          <img src="{{imgPath}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h6 class="card-title">{{name}}</h6>
-            <p class="card-text">Descrição resumida da barraca</p>
+        <a href="/reserva/vendor/{{_id}}" class="text-decoration-none">
+          <div class="card">
+            <img src="{{imgPath}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">{{name}}</h6>
+              <p class="card-text">Descrição resumida da barraca</p>
+            </div>
           </div>
-        </div>
-        {{/each}}
+        </a>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
-      <h6 class="pb-2">Meus Produtos</h6>
+      <div class="col-12 pb-2 border-bottom d-flex justify-content-between align-items-center">
+        <h6 class="text-uppercase">Meus Produtos</h6>
+        <span><a href="/cadastro/produtos/{{_id}}" class="badge badge-success">Add</a></span>
+      </div>
+      {{/each}}
       <ul class="list-group list-group-flush">
+        {{#if productFlag}}
         <li class="list-group-item">
           <div class="d-flex flex-row flew-wrap align-items-center">
             <div class="col-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 mb-1">
@@ -89,10 +68,14 @@
               </span> Barraca
             </div>
             <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
-              <p>Qt. 00</p>
+              {{#each result}}
+              <p>Qt. {{products.barraca.amount}}</p>
+              {{/each}}
             </div>
             <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
-              <p>R$ 00,00</p>
+              {{#each result}}
+              <p>R$ {{products.barraca.price}},00</p>
+              {{/each}}
             </div>
           </div>
         </li>
@@ -104,14 +87,25 @@
               </span> Cadeira
             </div>
             <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
-              <p>Qt. 00</p>
+              {{#each result}}
+              <p>Qt. {{products.cadeira.amount}}</p>
+              {{/each}}
             </div>
             <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
-              <p>R$ 00,00</p>
+              {{#each result}}
+              <p>R$ {{products.cadeira.price}},00</p>
+              {{/each}}
             </div>
           </div>
         </li>
+        <li class="list-group-item d-flex flex-row justify-content-end">
+          {{#each result}}
+          <a href="/edit/produtos/{{products._id}}" class="badge badge-warning">Edit</a>
+          {{/each}}
+        </li>
+        {{/if}}
       </ul>
     </div>
   </div>
+  {{/if}}
 </div>

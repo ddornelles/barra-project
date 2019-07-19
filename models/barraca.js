@@ -8,6 +8,7 @@ const barracaSchema = new Schema({
   imgPath: { type: String, default: 'https://image.flaticon.com/icons/svg/452/452943.svg' },
   description: String,
   owner: Schema.Types.ObjectId,
+  products: { type: Schema.Types.ObjectId, ref: 'Products' },
 }, {
   timestamps: {
     createdAt: 'created_at',

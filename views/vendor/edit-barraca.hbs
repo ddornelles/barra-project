@@ -4,17 +4,16 @@
       <h6 class="border-bottom pb-2">Minha Barraca</h6>
     </div>
     <div class="col-12 mt-3 border-bottom pb-3">
-      <form action="/cadastro" method="POST" enctype="multipart/form-data">
-        <input type="text" name="id" value="{{answer.id}}" hidden>
+      <form action="/barraca/edit/{{answer._id}}" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label for="barraca">Nome da Barraca</label>
           <input type="text" class="form-control" name="name" id="barraca" aria-describedby="barracaalert"
-            value="Nome da Barraca">
+            value="{{answer.name}}">
         </div>
         <div class="form-group">
           <label for="foto-barraca">Foto da Barraca</label>
           <figure class="figure">
-            <img src="https://via.placeholder.com/450x250" class="card-img-top figure-img rounded"
+            <img src="{{answer.imgPath}}" class="card-img-top figure-img rounded"
               alt="Barraca Picture">
           </figure>
           <div class="input-group">
@@ -23,87 +22,27 @@
             </div>
             <div class="custom-file">
               <input type="file" name="imgPath" class="custom-file-input" id="foto-barraca"
-                aria-describedby="foto-barraca">
+                aria-describedby="foto-barraca" required>
               <label class="custom-file-label" for="foto-barraca">Choose file</label>
             </div>
           </div>
         </div>
-        <div class="form-group">
+        {{!-- <div class="form-group">
           <label for="username">Posicione o marcador no local onde fica sua barraca.</label>
-          <div id="googlemap" class="border"></div>
+          <div id="newmap" class="border"></div>
           <input type="text" class="form-control" name="longitude" id="longitude" aria-describedby="longitudealert"
             value="Longitude" hidden>
           <input type="text" class="form-control" name="latitude" id="latitude" aria-describedby="latitudealert"
             value="Latitude" hidden>
-        </div>
+        </div> --}}
         <div class="form-group">
           <label for="username">Apresentaçao</label>
           <div class="input-group">
-            <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
+            <textarea name="description" class="form-control" aria-label="With textarea">{{answer.description}}</textarea>
           </div>
         </div>
       </div>
       <div class="col-12 mt-3">
-        <h6 class="pb-2">Meus Produtos</h6>
-        <ul class="list-group list-group-flush" id="barraca-services">
-          <li class="list-group-item">
-            <div class="row form-group d-flex flex-row flew-wrap align-items-center">
-              <div class="col-12 col-sm-5 col-md-7 col-lg-6 col-xl-7 mb-1">
-                <span id="barraca-valor" class="d-inline-block servicos text-center">
-                  <i class="fas fa-umbrella-beach"></i>
-                </span> Barraca
-              </div>
-              <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-5">
-                <div class="input-group input-group-sm">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Qt.</span>
-                  </div>
-                  <input type="text" name="barraca" id="barraca-serv" class="form-control text-center" min="0"
-                    value="0">
-                </div>
-              </div>
-              <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-5">
-                <div class="input-group input-group-sm">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">R$</span>
-                  </div>
-                  <input type="text" name="barraca" id="barraca-serv" class="form-control text-center" min="0"
-                    value="0">
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <div class="row form-group d-flex flex-row align-items-center">
-              <div class="col-12 col-sm-5 col-md-7 col-lg-6 col-xl-7 mb-1">
-                <span class="d-inline-block servicos text-center">
-                  <i class="fas fa-chair"></i>
-                </span> Cadeira
-              </div>
-              <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-5">
-                <div class="input-group input-group-sm">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Qt.</span>
-                  </div>
-                  <input type="text" name="barraca" id="barraca-serv" class="form-control text-center" min="0"
-                    value="0">
-                </div>
-              </div>
-              <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-5">
-                <div class="input-group input-group-sm">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">R$</span>
-                  </div>
-                  <input type="text" name="barraca" id="barraca-serv" class="form-control text-center" min="0"
-                    value="0">
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="col-12">
-        <hr>
         <div class="form-group text-center">
           <button type="submit" class="btn btn-sm btn-outline-info">Salvar</button>
         </div>
