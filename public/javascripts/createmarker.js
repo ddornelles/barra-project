@@ -65,7 +65,7 @@ function initAutocomplete() {
                   place.geometry.location,
                   item.location.coordinates[1],
                   item.location.coordinates[0],
-                ) < 1000
+                ) < 2000
               ) {
                 item.distance = calculateDist(
                   place.geometry.location,

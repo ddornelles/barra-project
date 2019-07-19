@@ -8,8 +8,15 @@
 }
 
 html, body {
-  min-height: 100vh;
-  min-width: 100vw;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+#main {
+  height: calc(100vh - 60px);
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  min-width: 100%;
 }
 
 .mockup-figure {
@@ -26,19 +33,17 @@ html, body {
   width: 150px;
 }
 
-body {
-  /* background: url('../images/background_home.jpg') no-repeat top center;
-  background-size: cover; */
-  font-size: 10px;
+div.bg-seashell {
+  background: url('../images/pattern1grayscale.jpg');
+  background-size: 150px 150px;
+  padding-top: 60px;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 figure#logo-home {
   height: 200px;
   width: 200px;
-}
-
-.home-info {
-  color: white;
 }
 
 .figure {
@@ -61,6 +66,14 @@ figure#profile-pic .objCover {
   height: 75px;
   width: 75px;
   object-fit: cover;
+}
+
+.bg-whitify {
+  background-color: rgba(255, 255, 255, .6)
+}
+
+.bg-sandify {
+  background-color: rgba(70, 70, 50, .6)
 }
 
 #barracaModal figure {
@@ -96,7 +109,7 @@ figure#profile-pic .objCover {
 }
 
 #list-barracas {
-  min-height: 310px;
+  min-height: 60vh;
   width: 100%;
   overflow-y: scroll;
 }
@@ -115,7 +128,7 @@ figure#profile-pic .objCover {
   width: 100%;
 }
 #searchmap {
-  min-height: 270px;
+  min-height: 50vh;
   /* width: 450px; */
 }
 #newmap {
@@ -139,6 +152,8 @@ main > .container {
 
 .footer {
   background-color: #f5f5f5;
+  position: relative;
+  bottom: 0;
 }
 
 .footer > .container {
