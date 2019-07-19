@@ -198,3 +198,7 @@ function initAutocomplete() {
   getBarracas();
 
 }
+
+window.onload = () => {
+  initAutocomplete();
+};
