@@ -1,44 +1,48 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 mt-3 d-flex justify-content-between align-items-center">
-      <h6 class="d-inline-block">Minha Reserva</h6> <a href="/profile" class="badge badge-info">Meu Perfil</a>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3 d-flex justify-content-between align-items-center">
+      <h6 class="text-uppercase font-weight-bold">Minha Reserva</h6> <a href="/profile" class="badge badge-info">Meu Perfil</a>
     </div>
   </div>
-  {{#each answer}}
-  <div class="col-12">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
     <hr>
-    <div class="card">
-      <div class="card-body">
-        {{#each business}}
-        <p class="card-title">{{name}} <span data-toggle="tooltip" data-placement="top" title="Contato"><i
-              class="far fa-comment-alt"></i></span></p>
-        <p class="card-text"><small>{{description}}</small></p>
-        {{/each}}
-      </div>
-      <div class="card-body border-top">
-        <h6 class="card-title">Minha Comanda</h6>
-        <div class="d-flex flex-column">
-          <div class="d-flex flex-row justify-content-between border-top pb-2 pt-2">
-            <span class="d-inline-block servicos text-center">
-              <i class="fas fa-umbrella-beach"></i>
-            </span>
-            <span><small>Qt. {{products.barraca.amount}}</small></span>
+    <div class="row">
+  {{#each answer}}
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+        <div class="card">
+          <div class="card-body">
+            {{#each business}}
+            <p class="card-title">{{name}} <span data-toggle="tooltip" data-placement="top" title="Contato"><i
+                  class="far fa-comment-alt"></i></span></p>
+            <p class="card-text"><small>{{description}}</small></p>
+            {{/each}}
           </div>
-          <div class="d-flex flex-row justify-content-between border-top pb-2 pt-2">
-            <span class="d-inline-block servicos text-center">
-              <i class="fas fa-chair"></i>
-            </span>
-            <span><small>Qt. {{products.cadeira.amount}}</small> </span>
-          </div>
-          <div class="d-flex flex-row justify-content-end border-top pt-2">
-            <span><small><b>R$ {{total}},00</b></small></span>
+          <div class="card-body border-top">
+            <h6 class="card-title">Minha Comanda</h6>
+            <div class="d-flex flex-column">
+              <div class="d-flex flex-row justify-content-between border-top pb-2 pt-2">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-umbrella-beach"></i>
+                </span>
+                <span><small>Qt. {{products.barraca.amount}}</small></span>
+              </div>
+              <div class="d-flex flex-row justify-content-between border-top pb-2 pt-2">
+                <span class="d-inline-block servicos text-center">
+                  <i class="fas fa-chair"></i>
+                </span>
+                <span><small>Qt. {{products.cadeira.amount}}</small> </span>
+              </div>
+              <div class="d-flex flex-row justify-content-end border-top pt-2">
+                <span><small><b>R$ {{total}},00</b></small></span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
     <div class="card-body text-center">
       <a href="/cancel/{{_id}}" class="btn btn-sm btn-outline-danger" id="endService" role="button">Finalizar</a>
     </div>
   </div>
   {{/each}}
+      </div>
+    </div>
 </div>
