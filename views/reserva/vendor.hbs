@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 mt-3 border-bottom pb-2 d-flex justify-content-between align-items-center">
-      <h6>Meus Reservados</h6><a href="/vendor/profile" class="badge badge-info">Meu Perfil</a>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3 border-bottom pb-2 d-flex justify-content-between align-items-center">
+      <h6 class="text-uppercase font-weight-bold">Meus Reservados</h6><a href="/profile" class="badge badge-info">Meu Perfil</a>
     </div>
-    <div class="col-12 mt-3">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3">
       <ul class="list-group">
         {{#each answer}}
         <li class="list-group-item d-flex">
@@ -15,7 +15,7 @@
             </figure>
             <div class="media-body ml-2">
               {{#each user}}
-              <h6 class="mt-0">{{name}}</h6>
+              <h6  class="font-weight-bold mt-0">{{name}}</h6>
               {{/each}}
               <span class="d-flex flex-row justify-content-between align-items-center">
                 <p>Consumo do usuário: R$ {{total}},00</p> {{!-- <a href="/cancel/{{_id}}" class="badge badge-danger">Encerrar</a> --}}

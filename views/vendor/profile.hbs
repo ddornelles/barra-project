@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     {{#if flag}}
-    <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2  mt-3">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3">
       <div class="alert alert-danger text-center" role="alert">Voce ainda nao tem nenhuma barraca cadastrada.</div>
       <div class="text-center">
         <a href="/cadastro" role="button" class="btn btn-sm btn-outline-success">Cadastrar</a>
@@ -41,7 +41,7 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3">
       <div class="card-deck">
         {{#each result}}
-        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 col-lg-6 col-xl-6">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-6 col-xl-6">
           <a href="/reserva/vendor/{{_id}}" class="text-decoration-none">
             <div class="card">
               <img src="{{imgPath}}" class="card-img-top" alt="...">
@@ -58,7 +58,7 @@
 
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3">
-      <div class="col-12 col-sm-12 pb-2 border-bottom d-flex justify-content-between align-items-center">
+      <div class="col-12 col-sm-12 pb-2 border-bottom d-flex flew-row justify-content-between align-items-center">
         <h6 class="text-uppercase font-weight-bold">Meus Produtos</h6>
         <span><a href="/cadastro/produtos/{{_id}}" class="badge badge-success">Add</a></span>
       </div>
@@ -66,37 +66,39 @@
       <ul class="list-group list-group-flush">
         {{#if productFlag}}
         <li class="list-group-item">
-          <div class="col-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 mb-1">
-            <span id="barraca-valor" class="d-inline-block text-center">
-              <i class="fas fa-umbrella-beach"></i>
-            </span> Barraca
-          </div>
-          <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
-            {{#each result}}
-            <p>Qt. {{products.barraca.amount}}</p>
-            {{/each}}
-          </div>
-          <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
-            {{#each result}}
-            <p>R$ {{products.barraca.price}},00</p>
-            {{/each}}
+          <div class="d-flex flew-row flex-wrap justify-content-between align-items-center">
+            <div class="col-12 col-sm-6 col-md-8 col-lg-8 col-xl-8 mb-1">
+              <span class="d-inline-block text-center">
+                <i class="fas fa-umbrella-beach"></i>
+              </span> Barraca
+            </div>
+            <div class="col-6 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+              {{#each result}}
+              <p class="mb-0">Qt. {{products.barraca.amount}}</p>
+              {{/each}}
+            </div>
+            <div class="col-6 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+              {{#each result}}
+              <p class="mb-0">R$ {{products.barraca.price}},00</p>
+              {{/each}}
+            </div>
           </div>
         </li>
         <li class="list-group-item">
-          <div class="d-flex flex-row align-items-center">
-            <div class="col-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 mb-1">
+          <div class="d-flex flex-row flex-wrap align-items-center">
+            <div class="col-12 col-sm-6 col-md-8 col-lg-8 col-xl-8 mb-1">
               <span class="d-inline-block text-center">
                 <i class="fas fa-chair"></i>
               </span> Cadeira
             </div>
-            <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+            <div class="col-6 col-sm-3 col-md-2 col-lg-2 col-xl-2">
               {{#each result}}
-              <p>Qt. {{products.cadeira.amount}}</p>
+              <p class="mb-0">Qt. {{products.cadeira.amount}}</p>
               {{/each}}
             </div>
-            <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+            <div class="col-6 col-sm-3 col-md-2 col-lg-2 col-xl-2">
               {{#each result}}
-              <p>R$ {{products.cadeira.price}},00</p>
+              <p class="mb-0">R$ {{products.cadeira.price}},00</p>
               {{/each}}
             </div>
           </div>

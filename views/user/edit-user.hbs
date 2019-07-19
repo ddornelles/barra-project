@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3 border-bottom pb-2">
-      <h6 class="text-uppercase font-weight-bold">Meu Perfil ({{role}})</h6>
+      <h6 class="text-uppercase font-weight-bold">Meu Perfil</h6>
     </div>
   </div>
   <form action="/edit" method="post" enctype="multipart/form-data">
@@ -24,7 +24,7 @@
       </div>
       <div class="col-12 col-sm-12 col-md-6 col-lg-5 offset-lg-1 col-xl-4 offset-xl-2">
         <div class="form-group">
-          <label for="foto-barraca">Foto</label>
+          <label class="font-weight-bold" for="foto-barraca">Foto</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text" id="foto-perfil-upload">Upload</span>
@@ -39,27 +39,27 @@
       </div>
       <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
         <div class="form-group">
-          <label for="name">Nome</label>
+          <label class="font-weight-bold" for="name">Nome</label>
           <input type="text" class="form-control" name="name" aria-describedby="namealert" value="{{name}}"
             required>
         </div>
       </div>
       <div class="col-8 col-sm-4 col-md-4 col-lg-3 offset-lg-1 col-xl-3 offset-xl-2">
         <div class="form-group">
-          <label for="cpf">CPF</label>
+          <label class="font-weight-bold" for="cpf">CPF</label>
           <input type="text" class="form-control" name="cpf" aria-describedby="cpfalert" value="{{cpf}}"
             required>
         </div>
       </div>
       <div class="col-4 col-sm-3 col-md-2 col-lg-1 col-xl-1">
         <div class="form-group">
-          <label for="age">Age</label>
+          <label class="font-weight-bold" for="age">Age</label>
           <input type="text" class="form-control" name="age" aria-describedby="agealert" value="{{age}}" required>
         </div>
       </div>
       <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2">
         <div class="form-group">
-          <label for="exampleInputTitle1">Title:</label>
+          <label class="font-weight-bold" for="exampleInputTitle1">Title:</label>
           <div class="input-group mb-3">
             <select class="custom-select" name="title" id="title" required>
               <option value="{{title}}" selected>{{title}}</option>
@@ -74,14 +74,14 @@
       </div>
       <div class="col-8 col-sm-6 col-md-4 col-lg-4 col-xl-2">
         <div class="form-group">
-          <label for="exampleInputContact1">Cellphone</label>
+          <label class="font-weight-bold" for="exampleInputContact1">Cellphone</label>
           <input type="text" class="form-control" name="contact" id="exampleInputContact1" value="{{contact}}"
             required>
         </div>
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+          <label class="font-weight-bold" for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp"
             value="{{username}}" required>
         </div>

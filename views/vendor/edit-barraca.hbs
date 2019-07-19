@@ -1,42 +1,36 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 mt-3">
-      <h6 class="border-bottom pb-2">Minha Barraca</h6>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3">
+      <h6  class="text-uppercase font-weight-bold border-bottom pb-2">Minha Barraca</h6>
     </div>
-    <div class="col-12 mt-3 border-bottom pb-3">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3 border-bottom pb-3">
       <form action="/barraca/edit/{{answer._id}}" method="POST" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="barraca">Nome da Barraca</label>
+          <label class="font-weight-bold" for="barraca">Nome da Barraca</label>
           <input type="text" class="form-control" name="name" id="barraca" aria-describedby="barracaalert"
             value="{{answer.name}}">
         </div>
         <div class="form-group">
-          <label for="foto-barraca">Foto da Barraca</label>
-          <figure class="figure">
-            <img src="{{answer.imgPath}}" class="card-img-top figure-img rounded"
-              alt="Barraca Picture">
-          </figure>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="foto-barraca-upload">Upload</span>
-            </div>
-            <div class="custom-file">
-              <input type="file" name="imgPath" class="custom-file-input" id="foto-barraca"
-                aria-describedby="foto-barraca" required>
-              <label class="custom-file-label" for="foto-barraca">Choose file</label>
-            </div>
+          <label class="font-weight-bold" for="foto-barraca">Foto da Barraca</label>
+          <div class="col-12 col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            <figure class="figure">
+              <img src="{{answer.imgPath}}" class="card-img-top figure-img rounded"
+                alt="Barraca Picture">
+            </figure>
           </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="foto-barraca-upload">Upload</span>
+              </div>
+              <div class="custom-file">
+                <input type="file" name="imgPath" class="custom-file-input" id="foto-barraca"
+                  aria-describedby="foto-barraca" required>
+                <label class="custom-file-label" for="foto-barraca">Choose file</label>
+              </div>
+            </div>
         </div>
-        {{!-- <div class="form-group">
-          <label for="username">Posicione o marcador no local onde fica sua barraca.</label>
-          <div id="newmap" class="border"></div>
-          <input type="text" class="form-control" name="longitude" id="longitude" aria-describedby="longitudealert"
-            value="Longitude" hidden>
-          <input type="text" class="form-control" name="latitude" id="latitude" aria-describedby="latitudealert"
-            value="Latitude" hidden>
-        </div> --}}
         <div class="form-group">
-          <label for="username">Apresentaçao</label>
+          <label class="font-weight-bold" for="username">Apresentaçao</label>
           <div class="input-group">
             <textarea name="description" class="form-control" aria-label="With textarea">{{answer.description}}</textarea>
           </div>
