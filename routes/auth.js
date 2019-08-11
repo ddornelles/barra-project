@@ -73,7 +73,6 @@ routerAuth.post('/signup', (req, res, next) => {
             .catch(error => console.log(error));
         })
         .catch((err) => {
-          console.log(err);
           res.render('auth/signup', { message: 'Something went wrong' });
         });
     });

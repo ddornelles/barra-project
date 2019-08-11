@@ -54,7 +54,7 @@ router.get('/profile', ensureLoggedIn(), (req, res, next) => {
 
 router.get('/edit', ensureLoggedIn(), (req, res, next) => {
   User.findById(req.user.id)
-    .then(answer => {
+    .then((answer) => {
       res.render('./user/edit-user', answer);
     })
     .catch(err => console.log(`Fire!${err}`));
@@ -65,7 +65,6 @@ router.post(
   ensureLoggedIn(),
   uploadCloud.single('imgPath'),
   (req, res, next) => {
-    console.log(req.body);
     const { name, username, age, contact, title, cpf } = req.body;
     const { id } = req.user;
 
@@ -73,8 +72,7 @@ router.post(
       { _id: id },
       { $set: { name, username, age, contact, title, cpf, imgName: req.user.id, imgPath: req.file.url } }
     )
-      .then(answer => {
-        console.log(answer);
+      .then((answer) => {
         res.redirect('/profile');
       })
       .catch(err => console.log(`Fire!${err}`));

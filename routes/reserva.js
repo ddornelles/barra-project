@@ -21,7 +21,6 @@ router.get('/reserva/:id', ensureLoggedIn(), (req, res, next) => {
 
 router.post('/reserva/:barracaId', (req, res, next) => {
   const { barracaId } = req.params;
-  console.log('------------------------------->', req.body);
   const { cadeira, barraca, cadeiraPrice, barracaPrice } = req.body;
   const check = cadeiraPrice * cadeira + barracaPrice * barraca;
   const products = {
@@ -69,38 +68,24 @@ router.post('/reserva/:barracaId', (req, res, next) => {
           })
           .catch(err => console.log(err))
       } else {
-        /* Barraca.findById(req.params.id)
-          .then((answer) => {
-            Reserva.find({ business: req.params.id })
-              .then((items) => {
-                res.render('./reserva/barraca', {
-                  answer,
-                  items,
-                  message: 'Não é possivel reservar essa quantidade de produtos no momento',
-                });
-              })
-              .catch(err => console.log(err))
-          }) */
-          Barraca.findById(barracaId)
-    .populate('products')
-    .then((beachStand) => {
-      console.log(beachStand)
-      res.render('./reserva/barraca', { 
-        beachStand,
-        message: 'Não é possivel reservar essa quantidade de produtos no momento',
-       });
-    })
-    .catch()
+        Barraca.findById(barracaId)
+          .populate('products')
+          .then((beachStand) => {
+            res.render('./reserva/barraca', {
+              beachStand,
+              message: 'Não é possivel reservar essa quantidade de produtos no momento',
+            });
+          })
+          .catch()
       }
     })
     .catch(err => console.log(err))
- });
+});
 
-router.get('/reserva', ensureLoggedIn(), (req ,res, next) => {
+router.get('/reserva', ensureLoggedIn(), (req, res, next) => {
   Reserva.find({ user: req.user.id })
     .populate('business')
     .then((answer) => {
-      console.log(answer);
       res.render('reserva/user', { answer });
     })
     .catch(err => console.log(err))
@@ -116,7 +101,6 @@ router.get('/reserva/vendor/:id', ensureLoggedIn(), (req, res, next) => {
 });
 
 router.get('/cancel/:reservaId', (req, res, next) => {
-  console.log(req.params);
   const { reservaId } = req.params;
   Reserva.findOne({ _id: reservaId })
     .then((answer) => {
@@ -147,6 +131,6 @@ router.get('/cancel/:reservaId', (req, res, next) => {
         })
         .catch(err => console.log(err))
     })
- });
+});
 
 module.exports = router;
