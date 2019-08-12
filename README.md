@@ -11,7 +11,7 @@ Explore new places at [Barra Quero](https://barraquero.herokuapp.com/ )
 ## Technologies
 
 * Express
-* Mongodb
+* MongoDB
 * HBS
 * NodeJS
 * Javascript
