@@ -6,7 +6,7 @@ Inpired by Airbnb ṕlatform we created an application to connect beach lovers w
 
 As a beach tent owner you can easily register your beach tent, keep track of reservations made by clients, inform the price of your products and share some history about your business.
 
-Explore new places [Barra Quero](https://barraquero.herokuapp.com/ )
+Explore new places at [Barra Quero](https://barraquero.herokuapp.com/ )
 
 ## Technologies
 
