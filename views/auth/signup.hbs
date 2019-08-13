@@ -1,14 +1,33 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3">
-      <form class="w-100" action="/signup" method="POST">
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <div class="form-group">
-              <label for="username">Name</label>
-              <input type="text" class="form-control" name="name" aria-describedby="namealert"
-                placeholder="Your name" required>
-            </div>
+      <form action="/signup" method="POST">
+        <div class="form-group">
+          <label class="font-weight-bold" for="username">Nome</label>
+          <input type="text" class="form-control" name="name" aria-describedby="namealert"
+            placeholder="Write your name" required>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold" for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold" for="exampleInputAge1">Age</label>
+          <input type="text" class="form-control" name="age" id="exampleaAgeEmail1" aria-describedby="emailHelp"
+            placeholder="Enter your age" required>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold" for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold" for="exampleInputRole1">Your role:</label>
+          <div class="input-group mb-3">
+            <select class="custom-select" name="role" id="inputGroupSelect01" required>
+              <option value="CLIENT" selected>Client</option>
+              <option value="VENDOR">Vendor</option>
+            </select>
           </div>
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <div class="form-group">
@@ -63,6 +82,15 @@
               <button type="submit" class="btn btn-sm bg-secondary"><i class="fab fa-twitter"></i></button> --}}
             </div>
           </div>
+        </div>
+        {{#if message}}
+          <div class="alert alert-danger" role="alert">{{ message }}</div>
+        {{/if}}
+        <div class="form-group text-center">
+          <button type="submit" onclick="signUpUser()" class="btn btn-info" id="signup">Signup</button>
+          <small class="form-text">
+            <p class="account-message">Have an account? <a href="/login">Login</a></p>
+          </small>
         </div>
       </form>
     </div>

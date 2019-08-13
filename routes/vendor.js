@@ -13,7 +13,6 @@ router.get('/cadastro', ensureLoggedIn(), (req, res, next) => {
 });
 
 router.post('/cadastro', uploadCloud.single('imgPath'), (req, res, next) => {
-  console.log(req.body);
   const { name, latitude, longitude, description } = req.body;
   const location = {
     type: 'Point',
@@ -42,7 +41,7 @@ router.get('/api', (req, res, next) => {
       res.status(200).json({ barracas });
     })
     .catch(error => console.log(error));
- });
+});
 
 router.get('/cadastro/produtos/:barracaId', (req, res, next) => {
   const { barracaId } = req.params;
@@ -78,7 +77,7 @@ router.post('/edit/produtos/:productId', (req, res, next) => {
 });
 
 router.post('/cadastro/produtos/:barracaId', (req, res, next) => {
-  
+
   const { barracaId } = req.params;
   const productList = new Products({
     business: barracaId,
@@ -94,11 +93,11 @@ router.post('/cadastro/produtos/:barracaId', (req, res, next) => {
     },
   });
   productList.save()
-    .then((savedProducts) => { 
+    .then((savedProducts) => {
       const productsId = savedProducts._id;
-      Barraca.update({ _id: barracaId }, { $set: { products: productsId  } })
-      .then(() => res.redirect('/profile'))
-      .catch(err => console.log(err))
+      Barraca.update({ _id: barracaId }, { $set: { products: productsId } })
+        .then(() => res.redirect('/profile'))
+        .catch(err => console.log(err))
     })
     .catch(() => res.render(`/products/${barracaId}`, { message: 'Erro' }))
 });
@@ -107,7 +106,6 @@ router.get('/barraca/edit/:barracaId', ensureLoggedIn(), (req, res, next) => {
   const { barracaId } = req.params;
   Barraca.findOne({ owner: barracaId })
     .then((answer) => {
-      console.log('------------------------------------->>>', answer);
       res.render('./vendor/edit-barraca', { answer, GMAPS: process.env.GMAPS });
     })
     .catch(err => console.log(err))

@@ -36,7 +36,6 @@ function initAutocomplete() {
     places.forEach((place) => {
       let closePlaces = [];
       if (!place.geometry) {
-        console.log('Returned place contains no geometry');
         return;
       }
 
@@ -149,7 +148,6 @@ function initAutocomplete() {
             };
           });
 
-          console.log(idHidden[0].value);
         })
         .catch((error) => {
           console.log(error);
