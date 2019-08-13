@@ -62,13 +62,13 @@
       $('[data-toggle="tooltip"]').tooltip()
     })
   </script>
- 
+
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
- {{#if GMAPS}}
-  <script src="https://maps.googleapis.com/maps/api/js?key={{GMAPS}}&libraries=places,geometry&callback=initAutocomplete" async defer></script>
-  <script src="./javascripts/createmarker.js"></script>
-  <script src="./javascripts/script.js"></script>
+  {{#if GMAPS}}
+    <script src="https://maps.googleapis.com/maps/api/js?key={{GMAPS}}&libraries=places,geometry&callback=initAutocomplete" async defer></script>
+    <script src="./javascripts/createmarker.js"></script>
+    <script src="./javascripts/script.js"></script>
   {{/if}}
 
 </body>

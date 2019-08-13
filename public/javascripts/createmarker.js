@@ -128,7 +128,7 @@ function initAutocomplete() {
                   <figure class="figure">
                     <img src="${x[0].imgPath}" class="figure-img img-fluid rounded" alt="Barraca Picture">
                   </figure>
-                  <p><b>Descriçao:</b><br><small>${x[0].description}</small></p>
+                  <p><b>Descrição:</b><br><small>${x[0].description}</small></p>
                   <p><b>Serviços:</b><br>
                     <span class="d-flex justify-content-around mt-1">
                       <i class="fas fa-umbrella-beach"></i>

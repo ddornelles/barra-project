@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3 border-bottom pb-2">
-      <h6 class="text-uppercase font-weight-bold">Cadastro de Barraca</h6>
+      <h6 class="text-uppercase">Cadastro de Barraca</h6>
     </div>
   </div>
   <form action="/cadastro" method="POST" enctype="multipart/form-data">
@@ -9,12 +9,12 @@
       <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mt-3 border-bottom pb-3">
         <input type="text" name="id" value="{{answer.id}}" hidden>
         <div class="form-group">
-          <label class="font-weight-bold" for="barraca">Nome da Barraca</label>
+          <label for="barraca">Nome da Barraca</label>
           <input type="text" class="form-control" name="name" id="barraca" aria-describedby="barracaalert"
             placeholder="Nome da Barraca" required>
         </div>
         <div class="form-group">
-          <label class="font-weight-bold" for="foto-barraca">Foto da Barraca</label>
+          <label for="foto-barraca">Foto da Barraca</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text" id="foto-barraca-upload">Upload</span>
@@ -22,12 +22,12 @@
             <div class="custom-file">
               <input type="file" name="imgPath" class="custom-file-input" id="foto-barraca"
                 aria-describedby="foto-barraca">
-              <label class="custom-file-label" for="foto-barraca">Choose file</label>
+              <label class="custom-file-label" for="foto-barraca"></label>
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label class="font-weight-bold" for="username">Posicione o marcador no local onde fica sua barraca.</label>
+          <label for="username">Posicione o marcador no local onde fica sua barraca.</label>
           <div id="googlemap" class="border"></div>
           <input type="text" class="form-control" name="longitude" id="longitude" aria-describedby="longitudealert"
             placeholder="Longitude" hidden>
@@ -35,7 +35,7 @@
             placeholder="Latitude" hidden>
         </div>
         <div class="form-group">
-          <label class="font-weight-bold" for="username">Apresentaçao</label>
+          <label for="username">Apresentaçao</label>
           <div class="input-group">
             <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
           </div>
